@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amiga User Management - Project Details | Ethan Cao</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body data-theme="terminal">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-icon">></span>
+                <a href="index.html" class="brand-text" style="color:inherit;text-decoration:none">ethan.cao</a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#projects" class="nav-link">Projects</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+                <button class="theme-switcher" id="themeSwitcher">
+                    <i class="fas fa-palette"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Theme Selector Modal -->
+    <div class="theme-modal" id="themeModal">
+        <div class="theme-modal-content">
+            <h3>Choose Your Style</h3>
+            <div class="theme-options">
+                <button class="theme-option" data-theme="terminal">
+                    <div class="theme-preview terminal-preview"></div>
+                    <span>Terminal</span>
+                </button>
+                <button class="theme-option" data-theme="modern">
+                    <div class="theme-preview modern-preview"></div>
+                    <span>Modern Dark</span>
+                </button>
+                <button class="theme-option" data-theme="neon">
+                    <div class="theme-preview neon-preview"></div>
+                    <span>Neon Cyber</span>
+                </button>
+                <button class="theme-option" data-theme="minimal">
+                    <div class="theme-preview minimal-preview"></div>
+                    <span>Minimalist</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Header -->
+    <section class="hero-section" style="min-height:auto;padding:120px 0 40px;">
+        <div class="container">
+            <div class="hero-content" style="grid-template-columns: 1fr; gap: 1rem; text-align:center;">
+                <h1 class="hero-title">Amiga User Management</h1>
+                <h2 class="hero-subtitle">Secure identity, access, and device-scoped authentication for Amiga robots</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Details -->
+    <section class="projects-section" style="padding:40px 0;">
+        <div class="container">
+            <div style="display:grid; grid-template-columns: 1fr; gap: 2rem;">
+                <div style="background: var(--bg-tertiary); border:1px solid var(--border-color); border-radius:12px; overflow:hidden;">
+                    <img src="assets/home.png" alt="Amiga User Management" style="width:100%; height:280px; object-fit:cover;">
+                </div>
+
+                <div style="display:grid; grid-template-columns: 1fr; gap: 1.5rem;">
+                    <div>
+                        <h3 class="project-title">Overview</h3>
+                        <p class="project-description" style="margin:0;">
+                            Production-grade user management system powering secure operations for Amiga agricultural robots. 
+                            Implements Google OAuth2 based login, device-scoped gRPC authentication with hardware-derived keys, 
+                            CSRF-safe sessions, role-based access controls, and real-time security event monitoring via WebSockets.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="project-title">Highlights</h3>
+                        <ul style="margin:0; padding-left: 1.2rem; color: var(--text-secondary); line-height:1.8;">
+                            <li>Google OAuth2 integrated with secure FastAPI backend</li>
+                            <li>Encrypted gRPC APIs with device identity and scoped permissions</li>
+                            <li>CSRF protection, secure session handling, and input validation</li>
+                            <li>Role-based access controls and real-time user management</li>
+                            <li>Dockerized services, CI/CD friendly, and production-ready configuration</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="project-title">Tech Stack</h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">gRPC</span>
+                            <span class="tech-tag">OAuth2</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                    </div>
+
+                    <div style="display:flex; gap: 0.75rem; flex-wrap: wrap;">
+                        <a class="btn btn-primary" href="https://github.com/EthanMCao/amiga-user-management" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <a class="btn btn-secondary" href="https://github.com/EthanMCao/amiga-user-management#readme" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-book"></i> README
+                        </a>
+                        <a class="btn btn-secondary" href="index.html#projects">
+                            <i class="fas fa-arrow-left"></i> Back to Projects
+                        </a>
+                    </div>
+                </div>
+
+                <div style="opacity:0.75; color: var(--text-muted); font-size:0.95rem;">
+                    Note: This page summarizes the project. For implementation details, security hardening notes,
+                    and deployment steps, please see the repository README.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Ethan Cao. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="index.html#about">About</a>
+                <a href="index.html#projects">Projects</a>
+                <a href="blog.html">Blog</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethan Cao - Cybersecurity Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body data-theme="terminal">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-icon">></span>
+                <span class="brand-text">ethan.cao</span>
+            </div>
+            <div class="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#labs" class="nav-link">Labs</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button class="theme-switcher" id="themeSwitcher">
+                    <i class="fas fa-palette"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Theme Selector Modal -->
+    <div class="theme-modal" id="themeModal">
+        <div class="theme-modal-content">
+            <h3>Choose Your Style</h3>
+            <div class="theme-options">
+                <button class="theme-option" data-theme="terminal">
+                    <div class="theme-preview terminal-preview"></div>
+                    <span>Terminal</span>
+                </button>
+                <button class="theme-option" data-theme="modern">
+                    <div class="theme-preview modern-preview"></div>
+                    <span>Modern Dark</span>
+                </button>
+                <button class="theme-option" data-theme="neon">
+                    <div class="theme-preview neon-preview"></div>
+                    <span>Neon Cyber</span>
+                </button>
+                <button class="theme-option" data-theme="minimal">
+                    <div class="theme-preview minimal-preview"></div>
+                    <span>Minimalist</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero/About Section -->
+    <section id="about" class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="typing-text">Hi, I'm Ethan Cao.</span>
+                    </h1>
+                    <h2 class="hero-subtitle">Cybersecurity · Software Engineering</h2>
+                    <div class="hero-actions">
+                        <div class="hero-resume">
+                            <a class="text-link link-button" href="resume.pdf" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>Resume (PDF)</span>
+                            </a>
+                        </div>
+                        <div class="hero-socials">
+                            <a class="social-chip linkedin" href="https://www.linkedin.com/in/ethan-cao-67652722a/" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a class="social-chip github" href="https://github.com/EthanMCao" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-photo">
+                    <img src="https://via.placeholder.com/300x300/1a1a1a/00ff00?text=Your+Photo" alt="Ethan Cao" class="profile-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <!-- Amiga User Management Project -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <a href="amiga-user-management.html">
+                            <img src="assets/home.png" alt="Amiga User Management">
+                        </a>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Amiga User Management</h3>
+                        <p class="project-description">
+                            Secure user management and authentication platform for Amiga agricultural robots.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">OAuth2</span>
+                            <span class="tech-tag">gRPC</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/EthanMCao/amiga-user-management" target="_blank" rel="noopener noreferrer" class="project-text-link">
+                                <i class="fab fa-github"></i>
+                                <span>Code</span>
+                            </a>
+                            <span class="project-sep">·</span>
+                            <a href="amiga-user-management.html" class="project-text-link">
+                                <i class="fas fa-info-circle"></i>
+                                <span>Details</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Placeholder for future projects -->
+                <div class="project-card coming-soon">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/1a1a1a/666666?text=Coming+Soon" alt="Coming Soon">
+                        <div class="project-overlay">
+                            <div class="coming-soon-text">
+                                <i class="fas fa-plus"></i>
+                                <span>More projects coming soon...</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Future Cybersecurity Projects</h3>
+                        <p class="project-description">
+                            Stay tuned for more exciting cybersecurity projects including penetration testing tools, 
+                            network security analyzers, and vulnerability assessment applications.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">TBD</span>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Labs Section -->
+    <section id="labs" class="projects-section">
+        <div class="container">
+            <h2 class="section-title">Labs</h2>
+            <div class="projects-grid">
+                <!-- Wazuh SIEM Lab -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <a href="wazuh-siem.html">
+                            <img src="assets/wazuh-siem/1.png" alt="Wazuh SIEM Walkthrough">
+                        </a>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Wazuh SIEM Walkthrough</h3>
+                        <p class="project-description">
+                            Visual, step-by-step lab documenting setup and usage of Wazuh SIEM, from deployment to alert triage.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Wazuh</span>
+                            <span class="tech-tag">SIEM</span>
+                            <span class="tech-tag">Security Monitoring</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="wazuh-siem.html" class="project-text-link">
+                                <i class="fas fa-images"></i>
+                                <span>View Gallery</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Wordle Solver Lab -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <a href="#">
+                            <img src="https://via.placeholder.com/400x250/1a1a1a/00ff00?text=Wordle+Solver" alt="Wordle Solver">
+                        </a>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Wordle Solver Algorithm</h3>
+                        <p class="project-description">
+                            Developed an efficient C program that solves Wordle puzzles by filtering through datasets 
+                            of thousands of words using optimized data structures and file handling.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">C</span>
+                            <span class="tech-tag">Data Structures</span>
+                            <span class="tech-tag">Algorithms</span>
+                            <span class="tech-tag">File I/O</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="#" class="project-text-link">
+                                <i class="fab fa-github"></i>
+                                <span>Code</span>
+                            </a>
+                            <span class="project-sep">·</span>
+                            <a href="#" class="project-text-link">
+                                <i class="fas fa-info-circle"></i>
+                                <span>Details</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Labs Coming Soon -->
+                <div class="project-card coming-soon">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/1a1a1a/666666?text=Coming+Soon" alt="Coming Soon">
+                        <div class="project-overlay">
+                            <div class="coming-soon-text">
+                                <i class="fas fa-plus"></i>
+                                <span>More labs coming soon...</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Security Labs</h3>
+                        <p class="project-description">
+                            Small experiments exploring vulnerabilities, cryptography, network analysis, and tooling.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">C</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Linux</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <p>
+                        I'm always interested in discussing cybersecurity opportunities, 
+                        internships, and collaborative projects. Feel free to reach out!
+                    </p>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span class="label">Email</span>
+                                <a href="mailto:ethanmcao@gmail.com">ethanmcao@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <span class="label">Phone</span>
+                                <a href="tel:+14085822366">(408) 582-2366</a>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fab fa-linkedin"></i>
+                            <div>
+                                <span class="label">LinkedIn</span>
+                                <a href="#" target="_blank">linkedin.com/in/ethan-cao</a>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fab fa-github"></i>
+                            <div>
+                                <span class="label">GitHub</span>
+                                <a href="#" target="_blank">github.com/ethancao</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Ethan Cao. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#labs">Labs</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
