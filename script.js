@@ -166,6 +166,7 @@ class ProjectAnimation {
     init() {
         this.observeProjectCards();
         this.handleProjectHovers();
+        this.enableInteractiveCards();
     }
 
     observeProjectCards() {
@@ -201,6 +202,54 @@ class ProjectAnimation {
             card.addEventListener('mouseleave', () => {
                 if (overlay) overlay.style.opacity = '0';
                 if (image) image.style.transform = 'scale(1)';
+            });
+        });
+    }
+
+    enableInteractiveCards() {
+        const cards = document.querySelectorAll('.project-card:not(.coming-soon)');
+        const maxTilt = 12; // degrees
+
+        cards.forEach(card => {
+            card.classList.add('interactive');
+            card.style.transformStyle = 'preserve-3d';
+
+            const handleMove = (e) => {
+                const rect = card.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                const mouseX = e.clientX - centerX;
+                const mouseY = e.clientY - centerY;
+                
+                const rotateX = (mouseY / (rect.height / 2)) * -maxTilt;
+                const rotateY = (mouseX / (rect.width / 2)) * maxTilt;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+            };
+
+            const reset = () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+            };
+
+            card.addEventListener('mouseenter', () => {
+                card.style.transition = 'none';
+            });
+
+            card.addEventListener('mousemove', handleMove);
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transition = 'transform 0.3s ease';
+                reset();
+            });
+
+            // Make whole card clickable (unless clicking a link/button inside)
+            card.addEventListener('click', (e) => {
+                const interactive = e.target.closest('a, button');
+                if (interactive) return;
+                const detailsLink = card.querySelector('.project-actions a[href]') || card.querySelector('.project-image a[href]');
+                if (detailsLink && detailsLink.getAttribute('href')) {
+                    window.location.href = detailsLink.getAttribute('href');
+                }
             });
         });
     }
@@ -334,8 +383,11 @@ function addAnimations() {
         }
 
         .animate-in {
-            animation: fadeInUp 0.6s ease forwards;
+            /* animation: fadeInUp 0.6s ease forwards; */
+            opacity: 1;
+            transform: translateY(0);
         }
+        
 
 
         .nav-link.active {
@@ -366,6 +418,9 @@ document.addEventListener('DOMContentLoaded', () => {
     new ProjectAnimation();
     new ContactForm();
 
+    // Add 3D card tilt effect
+    initCardTilt();
+
     // Add scroll-based navbar background
     const navbar = document.querySelector('.navbar');
     const handleScroll = Utils.throttle(() => {
@@ -393,5 +448,66 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('🔐 Cybersecurity Portfolio Loaded Successfully');
     console.log('Current Theme:', localStorage.getItem('portfolio-theme') || 'terminal');
 });
+
+// Simple 3D card tilt function
+function initCardTilt() {
+    console.log('🔧 Initializing card tilt...');
+    const cards = document.querySelectorAll('.project-card:not(.coming-soon)');
+    console.log('Found cards:', cards.length);
+    
+    cards.forEach((card, index) => {
+        let isHovering = false;
+        
+        // Remove any existing event listeners
+        card.removeEventListener('mouseenter', card._mouseenter);
+        card.removeEventListener('mouseleave', card._mouseleave);
+        card.removeEventListener('mousemove', card._mousemove);
+        
+        // Define the event handlers
+        card._mouseenter = () => {
+            isHovering = true;
+            console.log('Card', index, 'entered');
+        };
+        
+        card._mouseleave = () => {
+            isHovering = false;
+            card.style.setProperty('transform', 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px) scale3d(1, 1, 1)', 'important');
+            console.log('Card', index, 'left');
+        };
+        
+        card._mousemove = (e) => {
+            if (!isHovering) return;
+            
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            // Moderate tilt - balanced effect
+            const rotateX = (y - centerY) / centerY * -15;  // Reduced from -25
+            const rotateY = (x - centerX) / centerX * 15;   // Reduced from 25
+            
+            // Balanced effects
+            card.style.setProperty('transform', `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px) scale3d(1.02, 1.02, 1.02)`, 'important');
+        };
+        
+        // Add event listeners
+        card.addEventListener('mouseenter', card._mouseenter);
+        card.addEventListener('mouseleave', card._mouseleave);
+        card.addEventListener('mousemove', card._mousemove);
+
+        // Make whole card clickable
+        card.addEventListener('click', (e) => {
+            if (e.target.closest('a, button')) return;
+            const link = card.querySelector('.project-actions a, .project-image a');
+            if (link) {
+                link.click();
+            }
+        });
+    });
+    
+    console.log('Card tilt initialization complete');
+}
 
 

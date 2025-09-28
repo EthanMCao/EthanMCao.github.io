@@ -102,17 +102,16 @@ body {
 .section-title {
     font-size: 2.5rem;
     color: var(--text-primary);
-    text-align: center;
-    margin-bottom: 3rem;
+    text-align: left;
+    margin-bottom: 2rem;
     position: relative;
 }
 
 .section-title::after {
     content: '';
     position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: -8px;
+    left: 0;
     width: 80px;
     height: 3px;
     background: var(--accent-primary);
@@ -526,15 +525,32 @@ body {
 .project-card {
     background: var(--bg-tertiary);
     border-radius: 12px;
-    overflow: hidden;
     border: 1px solid var(--border-color);
-    transition: all 0.3s ease;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
     position: relative;
+    will-change: transform;
+    transform-style: preserve-3d;
 }
 
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow);
+.project-card .project-image {
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+}
+
+/* 3D tilt interaction */
+.project-card.interactive {
+    cursor: pointer;
+}
+
+.project-card.interactive:hover {
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    border-color: rgba(255,255,255,0.08);
+}
+
+.project-card .project-content,
+.project-card .project-image img,
+.project-card .project-actions {
+    transform: translateZ(0);
 }
 
 .project-image {
@@ -549,9 +565,7 @@ body {
     transition: transform 0.3s ease;
 }
 
-.project-card:hover .project-image img {
-    transform: scale(1.05);
-}
+/* Removed conflicting transform */
 
 /* overlay removed - links moved below */
 
@@ -604,6 +618,36 @@ body {
 .project-sep {
     color: var(--text-muted);
     padding: 0 0.2rem;
+}
+
+/* White button style for Source */
+.project-btn {
+    color: var(--bg-primary);
+    background: #ffffff;
+    border: 1px solid rgba(0,0,0,0.08);
+    padding: 0.28rem 0.5rem;
+    border-radius: 9px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.85rem;
+    transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+}
+
+.project-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    border-color: rgba(0,0,0,0.2);
+    background: var(--accent-primary) !important;
+    color: var(--bg-primary) !important;
+}
+
+.project-btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.35);
 }
 
 .project-content {
