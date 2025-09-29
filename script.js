@@ -1,68 +1,13 @@
-// Theme Management
-class ThemeManager {
+// Portfolio initialization - Modern Dark theme only
+class PortfolioManager {
     constructor() {
-        this.currentTheme = localStorage.getItem('portfolio-theme') || 'terminal';
-        this.themes = ['terminal', 'modern', 'neon', 'minimal'];
         this.init();
     }
 
     init() {
-        this.setTheme(this.currentTheme);
-        this.bindEvents();
+        // Set Modern Dark theme as default
+        document.body.setAttribute('data-theme', 'modern');
         this.initTypingAnimation();
-    }
-
-    setTheme(themeName) {
-        if (!this.themes.includes(themeName)) return;
-        
-        document.body.setAttribute('data-theme', themeName);
-        this.currentTheme = themeName;
-        localStorage.setItem('portfolio-theme', themeName);
-        
-        // Update active theme option
-        const themeOptions = document.querySelectorAll('.theme-option');
-        themeOptions.forEach(option => {
-            option.classList.remove('active');
-            if (option.getAttribute('data-theme') === themeName) {
-                option.classList.add('active');
-            }
-        });
-    }
-
-    bindEvents() {
-        // Theme switcher button
-        const themeSwitcher = document.getElementById('themeSwitcher');
-        const themeModal = document.getElementById('themeModal');
-        
-        if (themeSwitcher && themeModal) {
-            themeSwitcher.addEventListener('click', () => {
-                themeModal.classList.add('active');
-            });
-
-            // Close modal when clicking outside
-            themeModal.addEventListener('click', (e) => {
-                if (e.target === themeModal) {
-                    themeModal.classList.remove('active');
-                }
-            });
-
-            // Theme option selection
-            const themeOptions = document.querySelectorAll('.theme-option');
-            themeOptions.forEach(option => {
-                option.addEventListener('click', () => {
-                    const selectedTheme = option.getAttribute('data-theme');
-                    this.setTheme(selectedTheme);
-                    themeModal.classList.remove('active');
-                });
-            });
-        }
-
-        // Escape key to close modal
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && themeModal.classList.contains('active')) {
-                themeModal.classList.remove('active');
-            }
-        });
     }
 
     initTypingAnimation() {
@@ -413,7 +358,7 @@ document.addEventListener('DOMContentLoaded', () => {
     addAnimations();
     
     // Initialize all components
-    new ThemeManager();
+    new PortfolioManager();
     new Navigation();
     new ProjectAnimation();
     new ContactForm();
