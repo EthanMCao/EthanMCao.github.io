@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wazuh Virus Removal Lab - Project Details | Ethan Cao</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body data-theme="terminal">
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-icon">></span>
+                <a href="index.html" class="brand-text" style="color:inherit;text-decoration:none">ethan.cao</a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#projects" class="nav-link">Projects</a>
+                <a href="index.html#labs" class="nav-link">Labs</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+                <button class="theme-switcher" id="themeSwitcher"><i class="fas fa-palette"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section" style="min-height:auto;padding:120px 0 40px;">
+        <div class="container">
+            <div class="hero-content" style="grid-template-columns: 1fr; gap: 1rem; text-align:center;">
+                <h1 class="hero-title">Wazuh Virus Removal Lab</h1>
+                <h2 class="hero-subtitle">Automated malware detection and removal using Wazuh SIEM with VirusTotal integration</h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects-section" style="padding:40px 0;">
+        <div class="container">
+            <div style="display:grid; grid-template-columns: 1fr; gap: 2rem;">
+                
+                <!-- Summary Section -->
+                <div style="background: var(--bg-tertiary); padding: 2rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                    <h3 class="project-title">Lab Summary</h3>
+                    <p class="project-description">
+                        This lab demonstrates the complete setup of automated malware detection and removal using Wazuh SIEM 
+                        integrated with VirusTotal API. The system monitors file integrity, detects malicious files using 
+                        VirusTotal scanning, and automatically removes threats through active response scripts. This creates 
+                        a robust defense mechanism that can identify and eliminate malware in real-time without manual intervention.
+                    </p>
+                </div>
+
+                <!-- Step-by-step Gallery -->
+                <div style="display:grid; grid-template-columns: 1fr; gap: 2rem;">
+                    
+                    <!-- Step 1 -->
+                    <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="background: var(--accent-primary); color: var(--bg-primary); padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">STEP 1</span>
+                            <h3 style="margin: 0; color: var(--text-primary);">VirusTotal API Setup</h3>
+                        </div>
+                        <img src="assets/wazuh-virus-removal/1.png" alt="VirusTotal API Setup" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                        <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+                            Signed up for VirusTotal account and obtained API key required for the automated response script. 
+                            This API key will be used by Wazuh to scan suspicious files and determine if they are malicious.
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="background: var(--accent-primary); color: var(--bg-primary); padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">STEP 2</span>
+                            <h3 style="margin: 0; color: var(--text-primary);">Creating Test File</h3>
+                        </div>
+                        <img src="assets/wazuh-virus-removal/2.png" alt="Creating Test File" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                        <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+                            Created a test file on the Ubuntu host. This step is necessary to configure File Integrity Monitoring (FIM) 
+                            on the Wazuh Agent, which will track changes to files in the monitored directories.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="background: var(--accent-primary); color: var(--bg-primary); padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">STEP 3</span>
+                            <h3 style="margin: 0; color: var(--text-primary);">FIM Configuration Script</h3>
+                        </div>
+                        <img src="assets/wazuh-virus-removal/3.png" alt="FIM Configuration" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                        <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+                            Configured the script on the Ubuntu agent to enable File Integrity Monitoring (FIM). This script 
+                            checks for file integrity monitoring and ensures the agent can detect when files are created, 
+                            modified, or deleted in monitored directories.
+                        </p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="background: var(--accent-primary); color: var(--bg-primary); padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">STEP 4</span>
+                            <h3 style="margin: 0; color: var(--text-primary);">Agent Restart</h3>
+                        </div>
+                        <img src="assets/wazuh-virus-removal/4.png" alt="Agent Restart" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                        <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+                            Restarted the Wazuh agent to apply the new File Integrity Monitoring configuration. This ensures 
+                            that the FIM settings take effect and the agent begins monitoring the specified directories for file changes.
+                        </p>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="background: var(--accent-primary); color: var(--bg-primary); padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">STEP 5</span>
+                            <h3 style="margin: 0; color: var(--text-primary);">FIM Test File</h3>
+                        </div>
+                        <img src="assets/wazuh-virus-removal/5.png" alt="FIM Test File" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                        <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+                            Created a test file using `echo test.txt` to verify that the File Integrity Monitoring system is working correctly. 
+                            This test file will trigger FIM events that should be visible in the Wazuh SIEM dashboard.
+                        </p>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="background: var(--accent-primary); color: var(--bg-primary); padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">STEP 6</span>
+                            <h3 style="margin: 0; color: var(--text-primary);">FIM Recent Events</h3>
+                        </div>
+                        <img src="assets/wazuh-virus-removal/6.png" alt="FIM Recent Events" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                        <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+                            Immediately after creating the test file, we can see FIM recent events in the Wazuh dashboard. 
+                            This confirms that the File Integrity Monitoring system is successfully detecting file changes in real-time.
+                        </p>
+                    </div>
+
+                    <!-- Step 7 -->
+                    <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="background: var(--accent-primary); color: var(--bg-primary); padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">STEP 7</span>
+                            <h3 style="margin: 0; color: var(--text-primary);">FIM Events in Wazuh</h3>
+                        </div>
+                        <img src="assets/wazuh-virus-removal/7.png" alt="FIM Events in Wazuh" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                        <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+                            The file creation event is also visible in the main events section of the Wazuh SIEM dashboard. 
+                            This shows the comprehensive logging and monitoring capabilities of the system.
+                        </p>
+                    </div>
+
+                    <!-- Step 8 -->
+                    <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="background: var(--accent-primary); color: var(--bg-primary); padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">STEP 8</span>
+                            <h3 style="margin: 0; color: var(--text-primary);">VirusTotal Integration</h3>
+                        </div>
+                        <img src="assets/wazuh-virus-removal/8.png" alt="VirusTotal Integration" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                        <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+                            Added the VirusTotal API key to the Wazuh server configuration on the Ubuntu SIEM server. 
+                            This enables the system to automatically scan suspicious files using VirusTotal's extensive malware database.
+                        </p>
+                    </div>
+
+                    <!-- Step 9 -->
+                    <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="background: var(--accent-primary); color: var(--bg-primary); padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">STEP 9</span>
+                            <h3 style="margin: 0; color: var(--text-primary);">EICAR Test Malware</h3>
+                        </div>
+                        <img src="assets/wazuh-virus-removal/9.png" alt="EICAR Test Malware" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                        <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+                            Downloaded the EICAR test malware file onto the user machine. EICAR is a harmless test file 
+                            designed specifically for testing antivirus and security systems without posing any real threat.
+                        </p>
+                    </div>
+
+                    <!-- Step 10 -->
+                    <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="background: var(--accent-primary); color: var(--bg-primary); padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">STEP 10</span>
+                            <h3 style="margin: 0; color: var(--text-primary);">Virus Detection Alert</h3>
+                        </div>
+                        <img src="assets/wazuh-virus-removal/10.png" alt="Virus Detection Alert" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                        <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+                            The Wazuh SIEM successfully detected the EICAR virus file and generated an alert. This demonstrates 
+                            the real-time malware detection capabilities of the system integrated with VirusTotal scanning.
+                        </p>
+                    </div>
+
+                    <!-- Step 11 -->
+                    <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="background: var(--accent-primary); color: var(--bg-primary); padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">STEP 11</span>
+                            <h3 style="margin: 0; color: var(--text-primary);">Virus Details</h3>
+                        </div>
+                        <img src="assets/wazuh-virus-removal/11.png" alt="Virus Details" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                        <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+                            Detailed information about the detected virus is displayed, including threat classification, 
+                            detection methods, and severity levels. This provides security analysts with comprehensive threat intelligence.
+                        </p>
+                    </div>
+
+                    <!-- Step 12 -->
+                    <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="background: var(--accent-primary); color: var(--bg-primary); padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">STEP 12</span>
+                            <h3 style="margin: 0; color: var(--text-primary);">Multiple Virus Detections</h3>
+                        </div>
+                        <img src="assets/wazuh-virus-removal/12.png" alt="Multiple Virus Detections" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                        <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+                            Clicking on the VirusTotal link reveals multiple virus detections and additional threat intelligence. 
+                            Scrolling down shows more detailed information leading to the specific EICAR file detection.
+                        </p>
+                    </div>
+
+                    <!-- Step 13 -->
+                    <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="background: var(--accent-primary); color: var(--bg-primary); padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">STEP 13</span>
+                            <h3 style="margin: 0; color: var(--text-primary);">Rule ID Extraction</h3>
+                        </div>
+                        <img src="assets/wazuh-virus-removal/13.png" alt="Rule ID Extraction" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                        <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+                            Extracted the specific rule ID for the malware detection script. This rule ID will be used to 
+                            trigger the automated response script when similar threats are detected in the future.
+                        </p>
+                    </div>
+
+                    <!-- Step 14 -->
+                    <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="background: var(--accent-primary); color: var(--bg-primary); padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">STEP 14</span>
+                            <h3 style="margin: 0; color: var(--text-primary);">Malware Detection Script</h3>
+                        </div>
+                        <img src="assets/wazuh-virus-removal/14.png" alt="Malware Detection Script" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                        <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+                            Developed the automated malware detection and removal script. This script will be triggered 
+                            when the system detects malicious files and will automatically remove them from the system.
+                        </p>
+                    </div>
+
+                    <!-- Step 15 -->
+                    <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="background: var(--accent-primary); color: var(--bg-primary); padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">STEP 15</span>
+                            <h3 style="margin: 0; color: var(--text-primary);">File Ownership Configuration</h3>
+                        </div>
+                        <img src="assets/wazuh-virus-removal/15.png" alt="File Ownership Configuration" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                        <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+                            Configured file ownership permissions to ensure the automated response script has the necessary 
+                            privileges to remove malicious files from the system without manual intervention.
+                        </p>
+                    </div>
+
+                    <!-- Step 16 -->
+                    <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="background: var(--accent-primary); color: var(--bg-primary); padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">STEP 16</span>
+                            <h3 style="margin: 0; color: var(--text-primary);">Active Response Configuration</h3>
+                        </div>
+                        <img src="assets/wazuh-virus-removal/16.png" alt="Active Response Configuration" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                        <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+                            Added the active response configuration with the specific port ID. This links the detection rule 
+                            to the automated response script, enabling real-time threat remediation.
+                        </p>
+                    </div>
+
+                    <!-- Step 17 -->
+                    <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="background: var(--accent-primary); color: var(--bg-primary); padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">STEP 17</span>
+                            <h3 style="margin: 0; color: var(--text-primary);">Clean Slate Test</h3>
+                        </div>
+                        <img src="assets/wazuh-virus-removal/17.png" alt="Clean Slate Test" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                        <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+                            Removed the original EICAR file to create a clean testing environment. This ensures that 
+                            any future detections are from fresh downloads, allowing us to verify the automated removal system.
+                        </p>
+                    </div>
+
+                    <!-- Step 18 -->
+                    <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="background: var(--accent-primary); color: var(--bg-primary); padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">STEP 18</span>
+                            <h3 style="margin: 0; color: var(--text-primary);">Automated Removal Test</h3>
+                        </div>
+                        <img src="assets/wazuh-virus-removal/18.png" alt="Automated Removal Test" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                        <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+                            Downloaded the EICAR virus file again to test the automated removal system. Now when malware 
+                            is detected, it will be automatically removed from the system without manual intervention.
+                        </p>
+                    </div>
+
+                    <!-- Step 19 -->
+                    <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="background: var(--accent-primary); color: var(--bg-primary); padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">STEP 19</span>
+                            <h3 style="margin: 0; color: var(--text-primary);">Active Response Logs</h3>
+                        </div>
+                        <img src="assets/wazuh-virus-removal/19.png" alt="Active Response Logs" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                        <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+                            In the threat hunting section of the Wazuh SIEM, we can see both the virus alert and the 
+                            active response triggered in the logs. This provides complete visibility into the detection and remediation process.
+                        </p>
+                    </div>
+
+                    <!-- Step 20 -->
+                    <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="background: var(--accent-primary); color: var(--bg-primary); padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">STEP 20</span>
+                            <h3 style="margin: 0; color: var(--text-primary);">Removal Confirmation</h3>
+                        </div>
+                        <img src="assets/wazuh-virus-removal/20.png" alt="Removal Confirmation" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                        <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+                            The SIEM logs show detailed data confirming that the malicious file was successfully removed from the system. 
+                            This demonstrates the complete automated threat detection and removal workflow in action.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- CTA Section -->
+                <div style="display:flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center;">
+                    <a class="btn btn-primary" href="index.html#labs">
+                        <i class="fas fa-arrow-left"></i> Back to Labs
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Ethan Cao. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="index.html#about">About</a>
+                <a href="index.html#projects">Projects</a>
+                <a href="index.html#labs">Labs</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
