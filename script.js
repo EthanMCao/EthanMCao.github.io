@@ -14,7 +14,7 @@ class PortfolioManager {
         const typingElement = document.querySelector('.typing-text');
         if (!typingElement) return;
 
-        const text = "Hi, I am Ethan Cao";
+        const text = "hi, i'm ethan cao";
         const speed = 100;
         let i = 0;
 
@@ -396,9 +396,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Simple 3D card tilt function
 function initCardTilt() {
-    console.log('🔧 Initializing card tilt...');
     const cards = document.querySelectorAll('.project-card:not(.coming-soon)');
-    console.log('Found cards:', cards.length);
     
     cards.forEach((card, index) => {
         let isHovering = false;
@@ -411,13 +409,11 @@ function initCardTilt() {
         // Define the event handlers
         card._mouseenter = () => {
             isHovering = true;
-            console.log('Card', index, 'entered');
         };
         
         card._mouseleave = () => {
             isHovering = false;
             card.style.setProperty('transform', 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px) scale3d(1, 1, 1)', 'important');
-            console.log('Card', index, 'left');
         };
         
         card._mousemove = (e) => {
@@ -430,11 +426,11 @@ function initCardTilt() {
             const centerY = rect.height / 2;
             
             // Moderate tilt - balanced effect
-            const rotateX = (y - centerY) / centerY * -15;  // Reduced from -25
-            const rotateY = (x - centerX) / centerX * 15;   // Reduced from 25
+            const rotateX = (y - centerY) / centerY * -12;
+            const rotateY = (x - centerX) / centerX * 12;
             
             // Balanced effects
-            card.style.setProperty('transform', `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px) scale3d(1.02, 1.02, 1.02)`, 'important');
+            card.style.setProperty('transform', `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(8px) scale3d(1.01, 1.01, 1.01)`, 'important');
         };
         
         // Add event listeners
@@ -451,8 +447,6 @@ function initCardTilt() {
             }
         });
     });
-    
-    console.log('Card tilt initialization complete');
 }
 
 
