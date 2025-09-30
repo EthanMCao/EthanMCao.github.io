@@ -460,13 +460,15 @@ body {
     height: 280px;
     border-radius: 50%;
     object-fit: cover;
+    object-position: 35% bottom;
+    transform: scale(0.8);
     border: 2px solid var(--border-color);
     box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     transition: all 0.3s ease;
 }
 
 .profile-image:hover {
-    transform: scale(1.02);
+    transform: scale(0.82);
     border-color: var(--accent-primary);
     box-shadow: 0 12px 35px rgba(0,0,0,0.25);
 }
