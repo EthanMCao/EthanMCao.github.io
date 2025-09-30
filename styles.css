@@ -460,7 +460,7 @@ body {
     height: 280px;
     border-radius: 50%;
     object-fit: cover;
-    object-position: 35% bottom;
+    object-position: 35% 100%;
     transform: scale(0.8);
     border: 2px solid var(--border-color);
     box-shadow: 0 8px 25px rgba(0,0,0,0.15);
