@@ -308,7 +308,7 @@ body {
     min-height: 50vh;
     display: flex;
     align-items: center;
-    padding: 110px 0 20px;
+    padding: 110px 0 10px;
     background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
 }
 
@@ -516,19 +516,36 @@ body {
    =========================================== */
 
 .projects-section {
-    padding: 80px 0;
+    padding: 60px 0;
     background: var(--bg-primary);
+}
+
+/* Tighter spacing between Projects and Labs on the homepage */
+#projects.projects-section {
+    padding-bottom: 22px;
+}
+
+#labs.projects-section {
+    padding-top: 25px;
 }
 
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    gap: 1.5rem;
+}
+
+/* Center the last project when there's an odd number of items (e.g., 3) */
+.projects-grid > .project-card:last-child:nth-child(odd) {
+    /* Span full row and center with single-column width */
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: calc((100% - 2rem) / 2); /* match one column width minus gap */
 }
 
 .project-card {
     background: var(--bg-tertiary);
-    border-radius: 16px;
+    border-radius: 14px;
     border: 1px solid var(--border-color);
     transition: all 0.3s ease;
     position: relative;
@@ -566,8 +583,9 @@ body {
 
 .project-image img {
     width: 100%;
-    height: 180px;
+    height: 200px;
     object-fit: cover;
+    object-position: top;
     transition: all 0.3s ease;
 }
 
@@ -600,7 +618,7 @@ body {
 }
 
 .project-actions {
-    margin-top: 0.5rem;
+    margin-top: 0.75rem;
     display: flex;
     align-items: center;
     gap: 0.4rem;
@@ -631,14 +649,14 @@ body {
     color: var(--bg-primary);
     background: #ffffff;
     border: 1px solid rgba(0,0,0,0.08);
-    padding: 0.28rem 0.5rem;
-    border-radius: 9px;
+    padding: 0.22rem 0.42rem;
+    border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
     display: inline-flex;
     align-items: center;
     gap: 0.3rem;
-    font-size: 0.85rem;
+    font-size: 0.76rem;
     transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
     box-shadow: 0 1px 2px rgba(0,0,0,0.06);
 }
@@ -657,34 +675,38 @@ body {
 }
 
 .project-content {
-    padding: 1.25rem 1.25rem 1rem;
+    padding: 0.85rem 0.9rem 0.7rem;
 }
 
 .project-title {
     color: var(--text-primary);
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
+    font-size: 1.05rem;
+    margin-bottom: 0.55rem;
     font-weight: 600;
+    letter-spacing: -0.01em;
 }
 
 .project-description {
     color: var(--text-muted);
-    margin-bottom: 1rem;
-    line-height: 1.5;
+    margin-bottom: 0.95rem;
+    line-height: 1.35;
+    font-size: 0.88rem;
 }
 
 .project-tech {
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
+    margin-top: 0.35rem;
+    margin-bottom: 0.85rem;
 }
 
 .tech-tag {
     background: var(--bg-primary);
     color: var(--accent-primary);
-    padding: 0.2rem 0.6rem;
-    border-radius: 12px;
-    font-size: 0.7rem;
+    padding: 0.16rem 0.5rem;
+    border-radius: 10px;
+    font-size: 0.65rem;
     border: 1px solid var(--accent-primary);
 }
 
@@ -1129,6 +1151,13 @@ body {
     
     .projects-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* On mobile, make the last item full width */
+    .projects-grid > .project-card:last-child:nth-child(odd) {
+        grid-column: auto;
+        justify-self: stretch;
+        max-width: 100%;
     }
     
     .contact-content {

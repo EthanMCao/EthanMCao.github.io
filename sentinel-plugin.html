@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentinel Plugin - Project Details | Ethan Cao</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body data-theme="modern">
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-icon">></span>
+                <a href="index.html" class="brand-text" style="color:inherit;text-decoration:none">ethan.cao</a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#projects" class="nav-link">Projects</a>
+                <a href="index.html#labs" class="nav-link">Labs</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section" style="min-height:auto;padding:120px 0 40px;">
+        <div class="container">
+            <div class="hero-content" style="grid-template-columns: 1fr; gap: 1rem; text-align:center;">
+                <h1 class="hero-title">Sentinel Plugin</h1>
+                <h2 class="hero-subtitle">Minecraft Anti-Xray Detection Plugin</h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects-section" style="padding:40px 0;">
+        <div class="container">
+            <div style="display:grid; grid-template-columns: 1fr; gap: 2rem;">
+                <div style="background: var(--bg-tertiary); border:1px solid var(--border-color); border-radius:12px; overflow:hidden;">
+                    <img src="assets/sentinel-plugin/hq720.jpg" alt="Sentinel Plugin Screenshot" style="width:100%; height:auto; min-height:320px; object-fit:contain; object-position:top;">
+                </div>
+
+                <div>
+                    <h3 class="project-title">Overview</h3>
+                    <p class="project-description" style="margin:0;">
+                        Sentinel is a Minecraft server plugin that detects players using X-ray by
+                        analyzing mining behavior and identifying suspicious ore acquisition patterns.
+                        It helps server admins maintain fair gameplay with lightweight, practical checks.
+                        The plugin can emit structured logs suitable for SIEM ingestion (e.g., Wazuh)
+                        to centralize alerts and investigations.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="project-title">Highlights</h3>
+                    <ul style="margin:0; padding-left: 1.2rem; color: var(--text-secondary); line-height:1.8;">
+                        <li>Monitors ore mining events to detect abnormal patterns</li>
+                        <li>Flags high-likelihood X-ray behavior for admin review</li>
+                        <li>Lightweight and server-friendly design</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="project-title">Tech Stack</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">Spigot/Bukkit</span>
+                        <span class="tech-tag">Minecraft</span>
+                        <span class="tech-tag">Anti-Cheat</span>
+                    </div>
+                </div>
+
+                <div style="display:flex; gap: .75rem; flex-wrap: wrap;">
+                    <a class="btn btn-primary" href="https://github.com/EthanMCao/sentinel" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i> View Code
+                    </a>
+                    <a class="btn btn-secondary" href="index.html#projects">
+                        <i class="fas fa-arrow-left"></i> Back to Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Ethan Cao. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="index.html#about">About</a>
+                <a href="index.html#projects">Projects</a>
+                <a href="index.html#labs">Labs</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
