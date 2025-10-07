@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft X‑Ray Detection Dashboard with Wazuh | Lab</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .gallery { display: block; }
+        .step-card { background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 10px; overflow: hidden; margin-bottom: 1rem; }
+        .step-header { display:flex; align-items:center; gap:.6rem; padding:.8rem .9rem .2rem .9rem; }
+        .step-num { background: var(--accent-primary); color: var(--bg-primary); border-radius: 999px; padding: .2rem .6rem; font-weight:700; font-size:.85rem; }
+        .step-title { color: var(--text-primary); font-size: 1rem; font-weight: 600; margin: 0; }
+        .step-card img { width: 100%; height: 320px; object-fit: cover; display: block; cursor: zoom-in; }
+        .step-caption { color: var(--text-secondary); padding: .6rem .9rem .9rem; line-height: 1.6; }
+        .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,.85); display: none; align-items: center; justify-content: center; z-index: 3000; }
+        .lightbox.active { display: flex; }
+        .lightbox img { max-width: 90vw; max-height: 85vh; border-radius: 8px; }
+        .lightbox .close { position: absolute; top: 20px; right: 20px; font-size: 1.2rem; color: #fff; cursor: pointer; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); padding: .4rem .6rem; border-radius: 6px; }
+        @media (max-width: 768px) { .step-card img { height: 240px; } }
+    </style>
+    <meta name="description" content="Build a real-time Wazuh dashboard for detecting Minecraft X‑ray using Sentinel plugin telemetry.">
+    <meta property="og:title" content="Minecraft X‑Ray Detection Dashboard with Wazuh">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="End-to-end lab: PaperMC server + Sentinel plugin + Wazuh agent + custom dashboards.">
+</head>
+<body data-theme="modern">
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-icon">></span>
+                <a href="index.html" class="brand-text" style="color:inherit;text-decoration:none">ethan.cao</a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#projects" class="nav-link">Projects</a>
+                <a href="index.html#labs" class="nav-link">Labs</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section" style="min-height:auto;padding:120px 0 24px;">
+        <div class="container">
+            <div class="hero-content" style="grid-template-columns: 1fr; gap: .5rem; text-align:center;">
+                <h1 class="hero-title">Minecraft X‑Ray Detection Dashboard with Wazuh</h1>
+                <h2 class="hero-subtitle">PaperMC + Sentinel plugin + Wazuh SIEM visualizations</h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects-section" style="padding:28px 0 60px;">
+        <div class="container">
+            <div class="learn-box">
+                <h3>Summary</h3>
+                <p>We build a Minecraft anti‑cheat dashboard by streaming Sentinel plugin telemetry from a PaperMC server into Wazuh. The result is a clear, real‑time view of suspected X‑ray behavior across players and time.</p>
+                <ul>
+                    <li>Launch PaperMC and deploy the Sentinel plugin</li>
+                    <li>Ship JSON logs via Wazuh Agent to a prior Wazuh server</li>
+                    <li>Normalize fields and design purpose‑built visualizations</li>
+                    <li>Publish a concise dashboard for multiplayer oversight</li>
+                </ul>
+                <div class="learn-meta">
+                    <span class="learn-tag">Wazuh</span>
+                    <span class="learn-tag">Minecraft</span>
+                    <span class="learn-tag">PaperMC</span>
+                    <span class="learn-tag">Dashboards</span>
+                    <span class="learn-tag">JSON Logs</span>
+                </div>
+            </div>
+
+            <div class="gallery">
+                <div class="step-card">
+                    <div class="step-header"><span class="step-num">Step 1</span><h3 class="step-title">Start PaperMC server from JAR</h3></div>
+                    <img src="assets/sentinel-lab/1.png" alt="Start PaperMC server from JAR">
+                    <p class="step-caption">Boot a PaperMC instance locally using the server JAR to host a test world for telemetry.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-header"><span class="step-num">Step 2</span><h3 class="step-title">Build the Sentinel plugin</h3></div>
+                    <a href="sentinel-plugin.html" class="project-text-link" style="margin:0 .9rem .6rem; display:inline-flex; align-items:center; gap:.35rem;"><i class="fas fa-link"></i> View the Sentinel project</a>
+                    <img src="assets/sentinel-lab/2.png" alt="Build the Sentinel plugin">
+                    <p class="step-caption">Compile the full Sentinel plugin and prepare the output JAR for deployment on the server.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-header"><span class="step-num">Step 3</span><h3 class="step-title">Load plugin on startup</h3></div>
+                    <img src="assets/sentinel-lab/3.png" alt="Load plugin on startup">
+                    <p class="step-caption">Place the plugin JAR at <code>plugins/sentinelsnapshot.jar</code>; verify it loads cleanly on server start.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-header"><span class="step-num">Step 4</span><h3 class="step-title">Reuse prior Wazuh server; create Minecraft group</h3></div>
+                    <img src="assets/sentinel-lab/4.png" alt="Create Minecraft group in Wazuh">
+                    <p class="step-caption">Leverage the existing Wazuh SIEM from a prior lab. Create a dedicated group (e.g., <strong>sentinel-mc-server</strong>) to isolate Minecraft telemetry.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-header"><span class="step-num">Step 5</span><h3 class="step-title">Install Wazuh Agent on the MC host</h3></div>
+                    <img src="assets/sentinel-lab/5.png" alt="Install Wazuh Agent on the Minecraft host">
+                    <p class="step-caption">Deploy the agent on the same machine as the server to ship JSON logs produced by Sentinel.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-header"><span class="step-num">Step 6</span><h3 class="step-title">Point agent to correct log file and SIEM IP</h3></div>
+                    <img src="assets/sentinel-lab/6.png" alt="Configure agent file paths and SIEM IP">
+                    <p class="step-caption">Update the agent configuration to monitor the Sentinel JSON log and forward events to the Wazuh server’s IP.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-header"><span class="step-num">Step 7</span><h3 class="step-title">Register agent with Wazuh</h3></div>
+                    <img src="assets/sentinel-lab/7.png" alt="Register Wazuh agent">
+                    <p class="step-caption">Enroll the host in Wazuh and assign it to the <strong>sentinel-mc-server</strong> group for policy and views.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-header"><span class="step-num">Step 8</span><h3 class="step-title">Harden agent config; enable JSON log analysis</h3></div>
+                    <img src="assets/sentinel-lab/8.png" alt="Adjust agent configuration for JSON log analysis">
+                    <p class="step-caption">Disable unnecessary modules and tune log collection to focus on Sentinel’s JSON output for efficient parsing.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-header"><span class="step-num">Step 9</span><h3 class="step-title">Join server and generate X‑ray behavior</h3></div>
+                    <img src="assets/sentinel-lab/9.png" alt="Join server and generate X-ray behavior">
+                    <p class="step-caption">Enter the world and intentionally simulate suspicious mining to validate detections.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-header"><span class="step-num">Step 10</span><h3 class="step-title">Confirm alerts in Wazuh</h3></div>
+                    <img src="assets/sentinel-lab/10.png" alt="Confirm alerts in Wazuh">
+                    <p class="step-caption">Observe alerts flowing into Wazuh—initially unstructured for gameplay analytics use‑cases.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-header"><span class="step-num">Step 11</span><h3 class="step-title">Normalize fields for dashboarding</h3></div>
+                    <img src="assets/sentinel-lab/11.png" alt="Normalize fields for dashboarding">
+                    <p class="step-caption">Adjust mappings (e.g., cast suspicion score to an integer) to make metrics aggregable and sortable.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-header"><span class="step-num">Step 12</span><h3 class="step-title">Create multiplayer‑friendly visualizations</h3></div>
+                    <img src="assets/sentinel-lab/12.png" alt="Create multiplayer visualizations">
+                    <p class="step-caption">Design views by player, time window, and severity to track behavior across a live server.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-header"><span class="step-num">Step 13</span><h3 class="step-title">Trend X‑ray detections over time</h3></div>
+                    <img src="assets/sentinel-lab/13.png" alt="Trend X-ray detections over time">
+                    <p class="step-caption">Add a time series panel to chart total detections by interval for easy spotting of spikes.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-header"><span class="step-num">Step 14</span><h3 class="step-title">Assemble a focused dashboard</h3></div>
+                    <img src="assets/sentinel-lab/14.png" alt="Assemble a focused dashboard">
+                    <p class="step-caption">Combine the visualizations into a single, simple dashboard purpose‑built for gameplay oversight.</p>
+                </div>
+            </div>
+
+            <div style="display:flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; margin-top: 1rem;">
+                <a class="btn btn-primary" href="index.html#labs"><i class="fas fa-arrow-left"></i> Back to Labs</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="lightbox" id="lightbox">
+        <span class="close" id="lbClose"><i class="fas fa-times"></i> Close</span>
+        <img id="lbImg" alt="">
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Ethan Cao. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="index.html#about">About</a>
+                <a href="index.html#projects">Projects</a>
+                <a href="index.html#labs">Labs</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const lb = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lbImg');
+        const lbClose = document.getElementById('lbClose');
+        document.querySelectorAll('.gallery img').forEach(img => {
+            img.addEventListener('click', () => {
+                lbImg.src = img.src;
+                lb.classList.add('active');
+            });
+        });
+        lbClose.addEventListener('click', () => lb.classList.remove('active'));
+        lb.addEventListener('click', (e) => { if (e.target === lb) lb.classList.remove('active'); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lb.classList.remove('active'); });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
