@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photo Editing &amp; Compositing — Ethan Cao</title>
+<meta name="description" content="Colour grading, retouch, surreal composites and a live filter lab.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="assets/svg/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/studio.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html" aria-label="Ethan Cao — Digital Media, home">
+      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+        <defs><linearGradient id="nlg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#ff5e7d"/><stop offset=".52" stop-color="#8b6cff"/><stop offset="1" stop-color="#2ee6c4"/>
+        </linearGradient></defs>
+        <rect width="64" height="64" rx="15" fill="#0f1017"/>
+        <path d="M14 16 L26 22 L20 30 Z" fill="url(#nlg)"/><path d="M50 16 L38 22 L44 30 Z" fill="url(#nlg)"/>
+        <path d="M16 24 L32 20 L48 24 L40 40 L32 46 L24 40 Z" fill="url(#nlg)"/>
+        <path d="M32 20 L48 24 L40 40 Z" fill="#000" opacity=".16"/>
+        <path d="M24 40 L32 46 L40 40 L32 43 Z" fill="#0f1017"/>
+        <path d="M25 28 l4 2 -4 2 z" fill="#0f1017"/><path d="M39 28 l-4 2 4 2 z" fill="#0f1017"/>
+        <path d="M24 41 L32 47 L40 41 L40 44 L32 50 L24 44 Z" fill="#2ee6c4"/>
+      </svg>
+      <span>Ethan Cao<small>Digital Media</small></span>
+    </a>
+    <button class="nav-burger" aria-label="Toggle menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <div class="nav-links">
+      <a href="pixel.html">Pixel</a>
+      <a href="vector.html">Vector</a>
+      <a href="painting.html">Painting</a>
+      <a href="threed.html">3D</a>
+      <a href="photo.html">Photo</a>
+      <a href="game.html">Play</a>
+      <a href="about.html">About</a>
+      <a class="nav-cta" href="about.html#contact">Hire me</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+  <!-- ============================ HERO ============================ -->
+  <header class="page-hero">
+    <div class="wrap">
+      <div class="crumb"><a href="index.html">Home</a> / Photo &amp; Compositing</div>
+      <h1 class="reveal">Grading, retouch<br>&amp; <span class="gradient-text">surreal composites</span>.</h1>
+      <p class="lead reveal" data-d="1">
+        Colour is the edit. I push flat captures into mood — teal-and-orange skies,
+        faded film, hard noir — then build worlds that never existed through masking,
+        frequency-separation retouch and careful colour-match compositing. Below: live
+        before/after grades, a working filter lab you can drive yourself, and a few
+        manipulation studies.
+      </p>
+      <div class="meta-row reveal" data-d="2">
+        <div class="m"><b>Colour grading</b><span>Mood &amp; tone</span></div>
+        <div class="m"><b>Non-destructive</b><span>Layers &amp; masks</span></div>
+        <div class="m"><b>Composite</b><span>Matte &amp; blend</span></div>
+      </div>
+      <div class="tools mt-m reveal" data-d="3" aria-label="Tools used across this page">
+        <span class="tool primary"><span class="dot dot-ps"></span>Photoshop</span>
+        <span class="tool"><span class="dot dot-gimp"></span>GIMP</span>
+        <span class="tool"><span class="dot dot-affinity"></span>Affinity Photo</span>
+        <span class="tool"><span class="dot dot-photopea"></span>Photopea</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====================== BEFORE / AFTER ====================== -->
+  <section class="section pho-grade-section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Grading studies</span>
+        <h2>Drag to reveal the grade</h2>
+        <p>The same synthesised capture, before and after a full colour pass. Drag the
+           handle — or focus it and use the arrow keys — to compare the ungraded plate
+           against the final look.</p>
+      </div>
+
+      <div class="grid cols-2">
+
+        <!-- COMPARE 1 — Coastal teal & orange -->
+        <figure class="pho-cmp reveal" aria-label="Before and after colour grade: coastal scene">
+          <div class="pho-cmp-bottom" aria-hidden="true">
+            <!-- BEFORE: flat, washed, low contrast -->
+            <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ungraded flat coastal plate">
+              <defs>
+                <linearGradient id="c1-sky-b" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#9aa0ad"/><stop offset=".55" stop-color="#b7b3ad"/><stop offset="1" stop-color="#c9bfb0"/>
+                </linearGradient>
+                <linearGradient id="c1-sea-b" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#a9a59a"/><stop offset="1" stop-color="#7d8088"/>
+                </linearGradient>
+              </defs>
+              <rect width="800" height="420" fill="url(#c1-sky-b)"/>
+              <circle cx="560" cy="200" r="46" fill="#d7d2c4" opacity=".7"/>
+              <path d="M0 300 Q140 280 260 296 T520 288 T800 300 V420 H0 Z" fill="#8f8e86" opacity=".5"/>
+              <path d="M0 330 Q200 312 400 326 T800 322 V420 H0 Z" fill="#7e7d77" opacity=".55"/>
+              <rect y="420" width="800" height="180" fill="url(#c1-sea-b)"/>
+              <path d="M0 600 V520 Q140 500 260 560 T420 600 Z" fill="#5d5e60"/>
+              <path d="M800 600 V524 Q660 504 540 566 T420 600 Z" fill="#54565a"/>
+            </svg>
+            <span class="pho-cmp-lbl pho-cmp-lbl--before">Before</span>
+          </div>
+          <div class="pho-cmp-top" aria-hidden="true">
+            <!-- AFTER: graded teal & orange -->
+            <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Graded teal and orange coastal look">
+              <defs>
+                <linearGradient id="c1-sky-a" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#1f3a63"/><stop offset=".4" stop-color="#5d6fae"/>
+                  <stop offset=".7" stop-color="#e88a6a"/><stop offset="1" stop-color="#ffc678"/>
+                </linearGradient>
+                <radialGradient id="c1-sun" cx="70%" cy="40%" r="55%">
+                  <stop offset="0" stop-color="#fff3d0" stop-opacity=".95"/>
+                  <stop offset=".4" stop-color="#ffce8c" stop-opacity=".4"/>
+                  <stop offset="1" stop-color="#ffce8c" stop-opacity="0"/>
+                </radialGradient>
+                <linearGradient id="c1-sea-a" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#caa06f"/><stop offset=".4" stop-color="#3f6b78"/>
+                  <stop offset="1" stop-color="#14283a"/>
+                </linearGradient>
+              </defs>
+              <rect width="800" height="420" fill="url(#c1-sky-a)"/>
+              <rect width="800" height="420" fill="url(#c1-sun)"/>
+              <circle cx="560" cy="200" r="40" fill="#fff7e2"/>
+              <path d="M0 300 Q140 282 260 296 T520 288 T800 300 V420 H0 Z" fill="#6e5478" opacity=".7"/>
+              <path d="M0 330 Q200 314 400 326 T800 322 V420 H0 Z" fill="#3f3257" opacity=".85"/>
+              <rect y="420" width="800" height="180" fill="url(#c1-sea-a)"/>
+              <g fill="#ffe7bb" opacity=".55">
+                <rect x="540" y="436" width="42" height="3"/><rect x="552" y="456" width="30" height="3"/>
+                <rect x="544" y="478" width="36" height="3"/><rect x="556" y="500" width="22" height="3"/>
+              </g>
+              <path d="M0 600 V520 Q140 500 260 560 T420 600 Z" fill="#0c111f"/>
+              <path d="M800 600 V524 Q660 504 540 566 T420 600 Z" fill="#0a0e1a"/>
+            </svg>
+            <span class="pho-cmp-lbl pho-cmp-lbl--after">After</span>
+          </div>
+          <div class="pho-cmp-handle" tabindex="0" role="slider"
+               aria-label="Compare before and after, coastal grade"
+               aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <span class="pho-cmp-grip" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6 4 12l5 6M15 6l5 6-5 6"/></svg>
+            </span>
+          </div>
+          <figcaption class="pho-cmp-cap">
+            <strong>Coastal — teal &amp; orange.</strong>
+            Cool shadows, warm highlights, split-toned sky.
+            <span class="tools"><span class="tool primary"><span class="dot dot-ps"></span>Photoshop</span><span class="tool"><span class="dot dot-affinity"></span>Affinity Photo</span></span>
+          </figcaption>
+        </figure>
+
+        <!-- COMPARE 2 — Portrait light study -->
+        <figure class="pho-cmp reveal" data-d="1" aria-label="Before and after colour grade: portrait light study">
+          <div class="pho-cmp-bottom" aria-hidden="true">
+            <!-- BEFORE: flat studio plate -->
+            <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ungraded flat portrait plate">
+              <defs>
+                <radialGradient id="p1-bg-b" cx="50%" cy="42%" r="70%">
+                  <stop offset="0" stop-color="#b9b4ac"/><stop offset="1" stop-color="#8d8a85"/>
+                </radialGradient>
+                <linearGradient id="p1-skin-b" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#cbb6a6"/><stop offset="1" stop-color="#ad9a8c"/>
+                </linearGradient>
+              </defs>
+              <rect width="800" height="600" fill="url(#p1-bg-b)"/>
+              <ellipse cx="400" cy="560" rx="220" ry="160" fill="#9a8f86"/>
+              <ellipse cx="400" cy="300" rx="150" ry="185" fill="url(#p1-skin-b)"/>
+              <ellipse cx="400" cy="250" rx="158" ry="130" fill="#9c8d80" opacity=".5"/>
+              <ellipse cx="350" cy="300" rx="14" ry="10" fill="#5e544c"/>
+              <ellipse cx="450" cy="300" rx="14" ry="10" fill="#5e544c"/>
+              <path d="M372 360 Q400 376 428 360" stroke="#7a6c60" stroke-width="6" fill="none" stroke-linecap="round"/>
+            </svg>
+            <span class="pho-cmp-lbl pho-cmp-lbl--before">Before</span>
+          </div>
+          <div class="pho-cmp-top" aria-hidden="true">
+            <!-- AFTER: cinematic warm/cool key -->
+            <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Graded cinematic portrait light study">
+              <defs>
+                <radialGradient id="p1-bg-a" cx="38%" cy="36%" r="80%">
+                  <stop offset="0" stop-color="#3a2f52"/><stop offset=".6" stop-color="#1c1830"/><stop offset="1" stop-color="#0c0a18"/>
+                </radialGradient>
+                <linearGradient id="p1-skin-a" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#ffd9b0"/><stop offset=".5" stop-color="#e8a079"/><stop offset="1" stop-color="#7c4a53"/>
+                </linearGradient>
+                <radialGradient id="p1-rim" cx="78%" cy="30%" r="60%">
+                  <stop offset="0" stop-color="#2ee6c4" stop-opacity=".5"/><stop offset="1" stop-color="#2ee6c4" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+              <rect width="800" height="600" fill="url(#p1-bg-a)"/>
+              <rect width="800" height="600" fill="url(#p1-rim)"/>
+              <ellipse cx="400" cy="300" rx="150" ry="185" fill="url(#p1-skin-a)"/>
+              <path d="M540 200 Q470 240 460 420 Q500 380 540 360 Z" fill="#2ee6c4" opacity=".22"/>
+              <ellipse cx="400" cy="250" rx="158" ry="130" fill="#2a1a2c" opacity=".55"/>
+              <ellipse cx="350" cy="300" rx="14" ry="10" fill="#241a26"/>
+              <ellipse cx="450" cy="300" rx="14" ry="10" fill="#241a26"/>
+              <circle cx="346" cy="296" r="3" fill="#fff" opacity=".85"/>
+              <circle cx="446" cy="296" r="3" fill="#fff" opacity=".85"/>
+              <path d="M372 360 Q400 378 428 360" stroke="#8a4a52" stroke-width="6" fill="none" stroke-linecap="round"/>
+              <ellipse cx="330" cy="340" rx="28" ry="16" fill="#ff7a8f" opacity=".18"/>
+              <ellipse cx="470" cy="340" rx="28" ry="16" fill="#ff7a8f" opacity=".18"/>
+            </svg>
+            <span class="pho-cmp-lbl pho-cmp-lbl--after">After</span>
+          </div>
+          <div class="pho-cmp-handle" tabindex="0" role="slider"
+               aria-label="Compare before and after, portrait grade"
+               aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <span class="pho-cmp-grip" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6 4 12l5 6M15 6l5 6-5 6"/></svg>
+            </span>
+          </div>
+          <figcaption class="pho-cmp-cap">
+            <strong>Portrait — cinematic key.</strong>
+            Warm key, teal rim, lifted blacks, gentle skin retouch.
+            <span class="tools"><span class="tool primary"><span class="dot dot-ps"></span>Photoshop</span><span class="tool"><span class="dot dot-gimp"></span>GIMP</span></span>
+          </figcaption>
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= LIVE FILTER LAB ======================= -->
+  <section class="section pho-lab-section" aria-labelledby="pho-lab-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Interactive</span>
+        <h2 id="pho-lab-title">Live filter lab</h2>
+        <p>A real, in-browser grading panel running on a synthesised golden-hour seascape.
+           Push the sliders, try a preset look, toggle vignette and grain, then export the
+           graded frame as a PNG. Everything updates live on canvas.</p>
+      </div>
+
+      <div class="pho-lab reveal panel" data-d="1">
+        <!-- Canvas stage -->
+        <div class="pho-lab-stage">
+          <canvas id="pho-lab-canvas" width="800" height="600"
+                  aria-label="Synthesised golden-hour seascape with live colour grade applied"></canvas>
+          <div class="pho-lab-stage-meta" aria-hidden="true">
+            <span class="pill">800 × 600 · live</span>
+            <span class="pho-lab-rec"><span class="pho-lab-dot"></span>GRADE</span>
+          </div>
+        </div>
+
+        <!-- Control panel -->
+        <div class="pho-lab-panel">
+          <div class="pho-lab-presets" role="group" aria-label="Preset looks">
+            <button class="pho-preset" type="button" data-preset="teal" aria-pressed="false">
+              <span class="pho-sw pho-sw--teal" aria-hidden="true"></span>Teal &amp; Orange</button>
+            <button class="pho-preset" type="button" data-preset="film" aria-pressed="false">
+              <span class="pho-sw pho-sw--film" aria-hidden="true"></span>Faded Film</button>
+            <button class="pho-preset" type="button" data-preset="noir" aria-pressed="false">
+              <span class="pho-sw pho-sw--noir" aria-hidden="true"></span>Noir</button>
+            <button class="pho-preset" type="button" data-preset="golden" aria-pressed="false">
+              <span class="pho-sw pho-sw--golden" aria-hidden="true"></span>Golden Hour</button>
+          </div>
+
+          <div class="pho-lab-sliders">
+            <div class="pho-ctrl">
+              <label for="pho-brightness">Brightness <output id="pho-brightness-val">100%</output></label>
+              <input type="range" id="pho-brightness" min="40" max="180" value="100" step="1">
+            </div>
+            <div class="pho-ctrl">
+              <label for="pho-contrast">Contrast <output id="pho-contrast-val">100%</output></label>
+              <input type="range" id="pho-contrast" min="40" max="200" value="100" step="1">
+            </div>
+            <div class="pho-ctrl">
+              <label for="pho-saturate">Saturation <output id="pho-saturate-val">100%</output></label>
+              <input type="range" id="pho-saturate" min="0" max="220" value="100" step="1">
+            </div>
+            <div class="pho-ctrl">
+              <label for="pho-hue">Hue rotate <output id="pho-hue-val">0°</output></label>
+              <input type="range" id="pho-hue" min="-90" max="90" value="0" step="1">
+            </div>
+            <div class="pho-ctrl">
+              <label for="pho-sepia">Warmth (sepia) <output id="pho-sepia-val">0%</output></label>
+              <input type="range" id="pho-sepia" min="0" max="100" value="0" step="1">
+            </div>
+            <div class="pho-ctrl">
+              <label for="pho-blur">Blur <output id="pho-blur-val">0px</output></label>
+              <input type="range" id="pho-blur" min="0" max="8" value="0" step="0.1">
+            </div>
+          </div>
+
+          <div class="pho-lab-toggles" role="group" aria-label="Effects">
+            <button class="pho-toggle is-on" type="button" id="pho-vignette" aria-pressed="true">
+              <span class="pho-toggle-box" aria-hidden="true"></span>Vignette</button>
+            <button class="pho-toggle" type="button" id="pho-grain" aria-pressed="false">
+              <span class="pho-toggle-box" aria-hidden="true"></span>Film grain</button>
+          </div>
+
+          <div class="pho-lab-actions">
+            <button class="btn btn-ghost" type="button" id="pho-reset">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12a9 9 0 109-9 9 9 0 00-7 3.3M3 4v4h4"/></svg>
+              Reset
+            </button>
+            <button class="btn btn-primary" type="button" id="pho-export">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg>
+              Export PNG
+            </button>
+          </div>
+          <p class="pho-lab-hint">Tip: filters apply via the canvas <span class="kbd">filter</span> string — non-destructive, just like a real grading stack.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== COMPOSITES ======================== -->
+  <section class="section pho-comp-section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Manipulation studies</span>
+        <h2>Composite &amp; matte work</h2>
+        <p>Surreal scenes assembled from layered elements — the part of the craft that lives
+           in masks, blend modes and matching light. Each note calls out the core technique.</p>
+      </div>
+
+      <div class="grid cols-3">
+
+        <!-- COMPOSITE 1 — Double exposure -->
+        <article class="card reveal">
+          <div class="card-media">
+            <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Double-exposure composite: a profile portrait filled with a misty pine forest">
+              <defs>
+                <linearGradient id="dx-bg" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#0e1322"/><stop offset="1" stop-color="#1a1326"/>
+                </linearGradient>
+                <linearGradient id="dx-face" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#2a3a4f"/><stop offset="1" stop-color="#16202f"/>
+                </linearGradient>
+                <linearGradient id="dx-forest" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#9fd9c8" stop-opacity=".0"/>
+                  <stop offset=".5" stop-color="#3f8f7e" stop-opacity=".85"/>
+                  <stop offset="1" stop-color="#1d4a44"/>
+                </linearGradient>
+                <clipPath id="dx-clip">
+                  <path d="M250 120 Q360 80 470 130 Q560 175 560 300 Q560 430 470 500 Q420 540 360 540 L360 600 L250 600 Z"/>
+                </clipPath>
+              </defs>
+              <rect width="800" height="600" fill="url(#dx-bg)"/>
+              <g opacity=".5">
+                <circle cx="640" cy="150" r="180" fill="#2ee6c4" opacity=".06"/>
+                <circle cx="160" cy="460" r="200" fill="#8b6cff" opacity=".08"/>
+              </g>
+              <!-- profile silhouette -->
+              <path d="M250 120 Q360 80 470 130 Q560 175 560 300 Q560 430 470 500 Q420 540 360 540 L360 600 L250 600 Z" fill="url(#dx-face)"/>
+              <!-- forest filling the head via clip -->
+              <g clip-path="url(#dx-clip)">
+                <rect x="240" y="180" width="340" height="420" fill="url(#dx-forest)"/>
+                <g fill="#1f4f47" opacity=".9">
+                  <path d="M300 540 L312 360 L324 540 Z"/><path d="M340 560 L356 320 L372 560 Z"/>
+                  <path d="M392 545 L406 360 L420 545 Z"/><path d="M440 560 L456 330 L472 560 Z"/>
+                  <path d="M500 540 L512 380 L524 540 Z"/>
+                </g>
+                <g fill="#3a7d6f" opacity=".85">
+                  <path d="M320 600 L334 420 L348 600 Z"/><path d="M380 600 L396 400 L412 600 Z"/>
+                  <path d="M450 600 L466 410 L482 600 Z"/>
+                </g>
+                <g stroke="#d9f5ec" stroke-width="2" opacity=".25">
+                  <line x1="260" y1="300" x2="560" y2="300"/><line x1="260" y1="360" x2="560" y2="360"/>
+                </g>
+              </g>
+              <!-- birds escaping -->
+              <g stroke="#cfe9e1" stroke-width="2" fill="none" opacity=".7">
+                <path d="M150 200 q10 -8 20 0 q10 -8 20 0"/>
+                <path d="M120 250 q8 -6 16 0 q8 -6 16 0"/>
+                <path d="M180 160 q7 -5 14 0 q7 -5 14 0"/>
+              </g>
+            </svg>
+            <span class="card-tag">Double exposure</span>
+          </div>
+          <div class="card-body">
+            <h3>Where the mind wanders</h3>
+            <p>A profile filled with a misty pine forest. The portrait is the luminosity mask;
+               the forest is screened inside it and colour-matched to a single teal key.</p>
+            <div class="tools">
+              <span class="tool primary"><span class="dot dot-ps"></span>Photoshop</span>
+              <span class="tool"><span class="dot dot-gimp"></span>GIMP</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- COMPOSITE 2 — Floating island matte -->
+        <article class="card reveal" data-d="1">
+          <div class="card-media">
+            <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Matte painting composite: a floating island with a waterfall above a sea of clouds">
+              <defs>
+                <linearGradient id="fi-sky" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#243b6b"/><stop offset=".45" stop-color="#7e7ab0"/>
+                  <stop offset=".8" stop-color="#f0a98a"/><stop offset="1" stop-color="#ffd79e"/>
+                </linearGradient>
+                <radialGradient id="fi-sun" cx="30%" cy="32%" r="50%">
+                  <stop offset="0" stop-color="#fff4d6" stop-opacity=".9"/><stop offset="1" stop-color="#fff4d6" stop-opacity="0"/>
+                </radialGradient>
+                <linearGradient id="fi-rock" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#5f7a4a"/><stop offset=".25" stop-color="#3f5235"/>
+                  <stop offset="1" stop-color="#2a1d26"/>
+                </linearGradient>
+                <linearGradient id="fi-fall" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#dff6ff"/><stop offset="1" stop-color="#9cc7e8" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <rect width="800" height="600" fill="url(#fi-sky)"/>
+              <rect width="800" height="600" fill="url(#fi-sun)"/>
+              <circle cx="240" cy="190" r="42" fill="#fff7e6"/>
+              <!-- distant floating rocks (haze) -->
+              <g opacity=".4">
+                <path d="M560 150 l50 10 -20 26 -42 -8 z" fill="#6a6f9a"/>
+                <path d="M640 240 l40 8 -16 22 -34 -6 z" fill="#7a6f92"/>
+              </g>
+              <!-- cloud sea -->
+              <g fill="#fff1de">
+                <ellipse cx="160" cy="470" rx="180" ry="60" opacity=".9"/>
+                <ellipse cx="420" cy="500" rx="240" ry="72" opacity=".95"/>
+                <ellipse cx="680" cy="475" rx="190" ry="60" opacity=".9"/>
+                <ellipse cx="300" cy="520" rx="200" ry="60" opacity="1"/>
+              </g>
+              <!-- main island -->
+              <g>
+                <path d="M300 300 L520 300 L560 350 L470 420 L380 460 L300 430 L250 360 Z" fill="url(#fi-rock)"/>
+                <path d="M300 300 Q410 270 520 300 Q470 320 410 320 Q350 320 300 300 Z" fill="#7aa055"/>
+                <path d="M520 300 L560 350 L470 420 Z" fill="#000" opacity=".18"/>
+                <!-- trees -->
+                <g fill="#2f5a36">
+                  <ellipse cx="350" cy="296" rx="20" ry="24"/><ellipse cx="400" cy="288" rx="24" ry="28"/>
+                  <ellipse cx="450" cy="296" rx="18" ry="22"/>
+                </g>
+                <!-- waterfall -->
+                <path d="M390 320 L408 320 L420 460 L382 460 Z" fill="url(#fi-fall)" opacity=".9"/>
+              </g>
+              <!-- mist below fall -->
+              <ellipse cx="402" cy="470" rx="60" ry="20" fill="#fff" opacity=".7"/>
+            </svg>
+            <span class="card-tag">Matte painting</span>
+          </div>
+          <div class="card-body">
+            <h3>The last island</h3>
+            <p>A floating shelf above a sea of clouds. Built in stacked depth planes with
+               atmospheric haze toward the back and a hand-shaped waterfall blended over mist.</p>
+            <div class="tools">
+              <span class="tool primary"><span class="dot dot-ps"></span>Photoshop</span>
+              <span class="tool"><span class="dot dot-affinity"></span>Affinity Photo</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- COMPOSITE 3 — Sky replacement -->
+        <article class="card reveal" data-d="2">
+          <div class="card-media">
+            <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Sky-replacement composite: a city skyline with a dramatic replaced sunset sky, split to show the original grey sky">
+              <defs>
+                <linearGradient id="sr-old" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#b6bcc6"/><stop offset="1" stop-color="#d6d2cc"/>
+                </linearGradient>
+                <linearGradient id="sr-new" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#2b1d4e"/><stop offset=".4" stop-color="#7b3a78"/>
+                  <stop offset=".7" stop-color="#ff7a5e"/><stop offset="1" stop-color="#ffc46a"/>
+                </linearGradient>
+                <radialGradient id="sr-sun" cx="64%" cy="56%" r="40%">
+                  <stop offset="0" stop-color="#fff1c8"/><stop offset="1" stop-color="#fff1c8" stop-opacity="0"/>
+                </radialGradient>
+                <linearGradient id="sr-bld" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#2a2f44"/><stop offset="1" stop-color="#14172a"/>
+                </linearGradient>
+              </defs>
+              <!-- replaced sky -->
+              <rect width="800" height="600" fill="url(#sr-new)"/>
+              <rect width="800" height="600" fill="url(#sr-sun)"/>
+              <circle cx="512" cy="336" r="46" fill="#fff3d2" opacity=".95"/>
+              <!-- old grey sky kept on the left half to show the swap -->
+              <g clip-path="inset(0 60% 0 0)">
+                <rect width="320" height="600" fill="url(#sr-old)"/>
+                <circle cx="170" cy="170" r="60" fill="#e4e0d8" opacity=".7"/>
+              </g>
+              <!-- seam line -->
+              <line x1="320" y1="0" x2="320" y2="600" stroke="#0a0b0f" stroke-width="2" stroke-dasharray="8 6" opacity=".5"/>
+              <text x="332" y="36" fill="#ffe7bb" font-family="JetBrains Mono, monospace" font-size="20" opacity=".8">replaced →</text>
+              <text x="40" y="36" fill="#5a5a5a" font-family="JetBrains Mono, monospace" font-size="20" opacity=".9">original</text>
+              <!-- skyline (shared, masked against new sky) -->
+              <g fill="url(#sr-bld)">
+                <rect x="40" y="380" width="70" height="220"/>
+                <rect x="120" y="320" width="56" height="280"/>
+                <rect x="186" y="420" width="48" height="180"/>
+                <rect x="244" y="350" width="64" height="250"/>
+                <rect x="320" y="300" width="58" height="300"/>
+                <rect x="388" y="400" width="44" height="200"/>
+                <rect x="442" y="260" width="70" height="340"/>
+                <rect x="522" y="360" width="52" height="240"/>
+                <rect x="584" y="320" width="60" height="280"/>
+                <rect x="654" y="400" width="46" height="200"/>
+                <rect x="710" y="340" width="60" height="260"/>
+              </g>
+              <!-- warm window glow on the replaced side -->
+              <g fill="#ffd27a" opacity=".75">
+                <rect x="456" y="290" width="8" height="10"/><rect x="474" y="290" width="8" height="10"/>
+                <rect x="456" y="320" width="8" height="10"/><rect x="492" y="320" width="8" height="10"/>
+                <rect x="596" y="350" width="8" height="10"/><rect x="616" y="380" width="8" height="10"/>
+                <rect x="720" y="370" width="8" height="10"/><rect x="740" y="400" width="8" height="10"/>
+              </g>
+              <!-- cool windows on original side -->
+              <g fill="#9aa6b4" opacity=".6">
+                <rect x="132" y="340" width="8" height="10"/><rect x="150" y="370" width="8" height="10"/>
+                <rect x="256" y="380" width="8" height="10"/><rect x="276" y="410" width="8" height="10"/>
+              </g>
+            </svg>
+            <span class="card-tag">Sky replacement</span>
+          </div>
+          <div class="card-body">
+            <h3>Skyline, re-lit</h3>
+            <p>Grey overcast swapped for a burning sunset. The seam shows the original on the
+               left; the skyline is re-lit with warm window glow so light direction matches the new sky.</p>
+            <div class="tools">
+              <span class="tool primary"><span class="dot dot-ps"></span>Photoshop</span>
+              <span class="tool"><span class="dot dot-photopea"></span>Photopea</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Vela cameo -->
+      <div class="pho-vela glass reveal" data-d="1">
+        <svg class="pho-vela-art" viewBox="0 0 200 200" role="img" aria-label="Vela the fox mascot peeking over a colour-grading scope, wearing her teal scarf">
+          <defs>
+            <linearGradient id="vela-body" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ff8a5c"/><stop offset="1" stop-color="#ff5e7d"/>
+            </linearGradient>
+            <linearGradient id="vela-head" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ff9a6a"/><stop offset="1" stop-color="#ff7a5e"/>
+            </linearGradient>
+            <linearGradient id="vela-scope" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ff5e7d"/><stop offset=".52" stop-color="#8b6cff"/><stop offset="1" stop-color="#2ee6c4"/>
+            </linearGradient>
+          </defs>
+          <!-- colour scope (vectorscope) -->
+          <circle cx="100" cy="150" r="44" fill="#0f1017" stroke="#272b3c" stroke-width="3"/>
+          <circle cx="100" cy="150" r="44" fill="none" stroke="url(#vela-scope)" stroke-width="3" opacity=".5"/>
+          <g stroke="#353a50" stroke-width="1" opacity=".7">
+            <line x1="56" y1="150" x2="144" y2="150"/><line x1="100" y1="106" x2="100" y2="194"/>
+          </g>
+          <path d="M100 150 L122 120 M100 150 L130 158 M100 150 L86 182" stroke="#2ee6c4" stroke-width="2.4" stroke-linecap="round"/>
+          <!-- tail behind -->
+          <path d="M150 120 Q186 110 184 150 Q176 132 158 138 Z" fill="url(#vela-body)"/>
+          <path d="M178 138 Q186 130 184 150 Q179 142 172 144 Z" fill="#ffe9d6"/>
+          <!-- body -->
+          <path d="M64 138 Q100 118 136 138 L132 168 Q100 182 68 168 Z" fill="url(#vela-body)"/>
+          <path d="M82 140 Q100 132 118 140 L116 168 Q100 176 84 168 Z" fill="#fff3e8"/>
+          <!-- scarf -->
+          <path d="M70 132 Q100 146 130 132 L128 144 Q100 158 72 144 Z" fill="#2ee6c4"/>
+          <path d="M122 138 Q138 142 134 158 L126 152 Q124 146 120 144 Z" fill="#27c9b0"/>
+          <!-- head -->
+          <g>
+            <path d="M62 70 L78 96 L70 104 Z" fill="url(#vela-head)"/>
+            <path d="M138 70 L122 96 L130 104 Z" fill="url(#vela-head)"/>
+            <path d="M67 76 L76 92 L72 96 Z" fill="#2a2030"/>
+            <path d="M133 76 L124 92 L128 96 Z" fill="#2a2030"/>
+            <ellipse cx="100" cy="100" rx="42" ry="38" fill="url(#vela-head)"/>
+            <path d="M100 70 Q72 84 78 122 Q100 134 122 122 Q128 84 100 70 Z" fill="#fff3e8"/>
+            <ellipse cx="84" cy="100" rx="6" ry="7" fill="#241a26"/>
+            <ellipse cx="116" cy="100" rx="6" ry="7" fill="#241a26"/>
+            <circle cx="82" cy="97" r="2" fill="#fff"/><circle cx="114" cy="97" r="2" fill="#fff"/>
+            <ellipse cx="74" cy="112" rx="7" ry="4.5" fill="#ff7a8f" opacity=".75"/>
+            <ellipse cx="126" cy="112" rx="7" ry="4.5" fill="#ff7a8f" opacity=".75"/>
+            <path d="M100 110 l-5 6 h10 z" fill="#3a2a33"/>
+            <path d="M100 116 Q94 122 88 119 M100 116 Q106 122 112 119" stroke="#3a2a33" stroke-width="2" fill="none" stroke-linecap="round"/>
+          </g>
+        </svg>
+        <div class="pho-vela-copy">
+          <p class="eyebrow">From the colour bay</p>
+          <h3>Vela approves the grade.</h3>
+          <p>Every look here is one curve away from another. Want a frame, a poster or a whole
+             reel pushed into a specific mood? That is exactly the kind of pass I love.</p>
+          <a class="btn btn-primary mt-s" href="about.html#contact">
+            Start a grading project
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <div>
+      <h4>Let's make<br>something good.</h4>
+      <p>2D &amp; 3D digital media — pixel art, vector, illustration, 3D, game art and compositing.</p>
+      <div class="tools" style="margin-top:18px">
+        <span class="tool primary"><span class="dot dot-unity"></span>Unity</span>
+        <span class="tool primary"><span class="dot dot-ps"></span>Photoshop</span>
+        <span class="tool primary"><span class="dot dot-figma"></span>Figma</span>
+        <span class="tool primary"><span class="dot dot-blender"></span>Blender</span>
+      </div>
+    </div>
+    <div class="foot-col">
+      <h5>Work</h5>
+      <a href="pixel.html">Pixel Art</a>
+      <a href="vector.html">Vector &amp; Illustration</a>
+      <a href="painting.html">Digital Painting</a>
+      <a href="threed.html">3D Modelling</a>
+      <a href="photo.html">Photo &amp; Composite</a>
+      <a href="game.html">Playable Demo</a>
+    </div>
+    <div class="foot-col">
+      <h5>Connect</h5>
+      <a href="about.html">About &amp; process</a>
+      <a href="mailto:ethanmcao@gmail.com">ethanmcao@gmail.com</a>
+      <a href="about.html#contact">Start a project</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© <span data-year></span> Ethan Cao · Digital Media</span>
+    <span>Hand-built · San Jose, CA</span>
+  </div>
+</footer>
+
+<script src="assets/js/photo.js"></script>
+<script src="assets/js/components.js"></script>
+
+<style>
+/* ===================================================================
+   PHOTO PAGE — page-specific styles, all prefixed .pho-*
+   =================================================================== */
+
+/* ---------- Before / After comparison ---------- */
+.pho-cmp {
+  position: relative;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--bg-2);
+  box-shadow: var(--shadow);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+}
+.pho-cmp-bottom,
+.pho-cmp-top {
+  position: relative;
+  aspect-ratio: 4 / 3;
+}
+.pho-cmp-top {
+  position: absolute;
+  inset: 0 0 auto 0;
+  /* clip-path set via JS */
+  will-change: clip-path;
+}
+.pho-cmp-bottom svg,
+.pho-cmp-top svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.pho-cmp-lbl {
+  position: absolute;
+  bottom: 14px;
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--text);
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: rgba(10, 11, 15, .62);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, .12);
+}
+.pho-cmp-lbl--before { left: 14px; }
+.pho-cmp-lbl--after { right: 14px; color: #0a0b0f; background: rgba(46, 230, 196, .9); border-color: transparent; }
+
+.pho-cmp-handle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 75%; /* covers the media, not the caption */
+  width: 2px;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, .9);
+  cursor: ew-resize;
+  z-index: 4;
+}
+.pho-cmp-handle::before {
+  content: "";
+  position: absolute;
+  left: -22px;
+  right: -22px;
+  top: 0;
+  bottom: 0; /* fat invisible hit area */
+}
+.pho-cmp-handle:focus-visible { outline: none; }
+.pho-cmp-handle:focus-visible .pho-cmp-grip {
+  box-shadow: 0 0 0 3px rgba(46, 230, 196, .9), var(--shadow-sm);
+}
+.pho-cmp-grip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff5e7d, #8b6cff 52%, #2ee6c4);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+  transition: transform .18s var(--ease);
+}
+.pho-cmp.is-dragging .pho-cmp-grip { transform: translate(-50%, -50%) scale(1.06); }
+.pho-cmp-grip svg { width: 20px; height: 20px; }
+.pho-cmp-cap {
+  padding: 16px 18px 18px;
+  font-size: .9rem;
+  color: var(--muted);
+  background: linear-gradient(180deg, var(--panel) 0%, var(--bg-2) 100%);
+  border-top: 1px solid var(--line);
+}
+.pho-cmp-cap strong { color: var(--text); }
+.pho-cmp-cap .tools { margin-top: 12px; }
+
+/* ---------- Live filter lab ---------- */
+.pho-lab {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 0;
+  overflow: hidden;
+  border-radius: var(--r-xl);
+}
+.pho-lab-stage {
+  position: relative;
+  background:
+    repeating-conic-gradient(#0c0d14 0% 25%, #0f1017 0% 50%) 0 / 28px 28px;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  border-right: 1px solid var(--line);
+}
+.pho-lab-stage canvas {
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+  background: #000;
+}
+.pho-lab-stage-meta {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  right: 30px;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+.pho-lab-rec {
+  font-family: var(--font-mono);
+  font-size: .66rem;
+  letter-spacing: .16em;
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: rgba(10, 11, 15, .6);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(6px);
+}
+.pho-lab-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--coral);
+  box-shadow: 0 0 8px var(--coral);
+  animation: pho-pulse 1.6s var(--ease) infinite;
+}
+@keyframes pho-pulse { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+
+.pho-lab-panel {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background: var(--panel);
+}
+.pho-lab-presets {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.pho-preset {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: .82rem;
+  color: var(--muted);
+  padding: 10px 12px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--line);
+  background: var(--panel-2);
+  cursor: pointer;
+  transition: border-color .2s var(--ease), color .2s var(--ease), background .2s var(--ease);
+}
+.pho-preset:hover { color: var(--text); border-color: var(--line-2); }
+.pho-preset.is-active {
+  color: var(--text);
+  border-color: var(--teal);
+  background: rgba(46, 230, 196, .08);
+}
+.pho-sw {
+  width: 16px; height: 16px; border-radius: 5px; flex: none;
+  border: 1px solid rgba(255, 255, 255, .14);
+}
+.pho-sw--teal { background: linear-gradient(135deg, #1f3a63, #ff9a55); }
+.pho-sw--film { background: linear-gradient(135deg, #c9b79a, #8a7e6a); }
+.pho-sw--noir { background: linear-gradient(135deg, #e8e8e8, #1a1a1a); }
+.pho-sw--golden { background: linear-gradient(135deg, #ffd27a, #ff7a3d); }
+
+.pho-lab-sliders { display: flex; flex-direction: column; gap: 13px; }
+.pho-ctrl label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 7px;
+}
+.pho-ctrl output { color: var(--teal); font-weight: 500; }
+
+/* Range slider — themed, cross-browser */
+.pho-ctrl input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 5px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--violet), var(--teal));
+  outline: none;
+  cursor: pointer;
+}
+.pho-ctrl input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 17px; height: 17px;
+  border-radius: 50%;
+  background: var(--text);
+  border: 3px solid #0a0b0f;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+}
+.pho-ctrl input[type="range"]::-moz-range-thumb {
+  width: 17px; height: 17px;
+  border-radius: 50%;
+  background: var(--text);
+  border: 3px solid #0a0b0f;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+}
+.pho-ctrl input[type="range"]:focus-visible {
+  box-shadow: 0 0 0 3px rgba(46, 230, 196, .4);
+}
+
+.pho-lab-toggles { display: flex; gap: 10px; }
+.pho-toggle {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: .84rem;
+  color: var(--muted);
+  padding: 10px 12px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--line);
+  background: var(--panel-2);
+  cursor: pointer;
+  transition: color .2s var(--ease), border-color .2s var(--ease);
+}
+.pho-toggle:hover { color: var(--text); }
+.pho-toggle-box {
+  width: 16px; height: 16px; border-radius: 5px; flex: none;
+  border: 1px solid var(--line-2);
+  background: var(--bg-2);
+  display: grid; place-items: center;
+  transition: background .2s var(--ease), border-color .2s var(--ease);
+}
+.pho-toggle.is-on { color: var(--text); border-color: var(--teal); }
+.pho-toggle.is-on .pho-toggle-box {
+  background: var(--teal);
+  border-color: var(--teal);
+}
+.pho-toggle.is-on .pho-toggle-box::after {
+  content: "";
+  width: 8px; height: 8px; border-radius: 2px;
+  background: #0a0b0f;
+}
+
+.pho-lab-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.pho-lab-actions .btn { flex: 1; justify-content: center; min-width: 130px; }
+.pho-lab-hint {
+  font-size: .8rem;
+  color: var(--faint);
+  margin-top: 2px;
+}
+
+/* ---------- Vela cameo ---------- */
+.pho-vela {
+  margin-top: 48px;
+  border-radius: var(--r-xl);
+  padding: 26px;
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 26px;
+  align-items: center;
+}
+.pho-vela-art { width: 150px; height: 150px; flex: none; }
+.pho-vela-copy h3 { font-size: 1.4rem; margin: 8px 0 8px; }
+.pho-vela-copy p { color: var(--muted); font-size: .96rem; max-width: 52ch; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 920px) {
+  .pho-lab { grid-template-columns: 1fr; }
+  .pho-lab-stage { border-right: 0; border-bottom: 1px solid var(--line); }
+}
+@media (max-width: 560px) {
+  .pho-vela { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .pho-vela-copy p { margin-inline: auto; }
+  .pho-lab-presets { grid-template-columns: 1fr; }
+  .pho-cmp-handle { height: 78%; }
+}
+@media (max-width: 380px) {
+  .pho-lab-panel { padding: 18px; }
+  .pho-lab-actions .btn { min-width: 0; }
+}
+</style>
+
+</body>
+</html>

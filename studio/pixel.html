@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pixel Art &amp; Animation — Ethan Cao</title>
+<meta name="description" content="Sprites, tilesets, animated cycles and a live in-browser pixel editor.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="assets/svg/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/studio.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html" aria-label="Ethan Cao — Digital Media, home">
+      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+        <defs><linearGradient id="nlg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#ff5e7d"/><stop offset=".52" stop-color="#8b6cff"/><stop offset="1" stop-color="#2ee6c4"/>
+        </linearGradient></defs>
+        <rect width="64" height="64" rx="15" fill="#0f1017"/>
+        <path d="M14 16 L26 22 L20 30 Z" fill="url(#nlg)"/><path d="M50 16 L38 22 L44 30 Z" fill="url(#nlg)"/>
+        <path d="M16 24 L32 20 L48 24 L40 40 L32 46 L24 40 Z" fill="url(#nlg)"/>
+        <path d="M32 20 L48 24 L40 40 Z" fill="#000" opacity=".16"/>
+        <path d="M24 40 L32 46 L40 40 L32 43 Z" fill="#0f1017"/>
+        <path d="M25 28 l4 2 -4 2 z" fill="#0f1017"/><path d="M39 28 l-4 2 4 2 z" fill="#0f1017"/>
+        <path d="M24 41 L32 47 L40 41 L40 44 L32 50 L24 44 Z" fill="#2ee6c4"/>
+      </svg>
+      <span>Ethan Cao<small>Digital Media</small></span>
+    </a>
+    <button class="nav-burger" aria-label="Toggle menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <div class="nav-links">
+      <a href="pixel.html">Pixel</a>
+      <a href="vector.html">Vector</a>
+      <a href="painting.html">Painting</a>
+      <a href="threed.html">3D</a>
+      <a href="photo.html">Photo</a>
+      <a href="game.html">Play</a>
+      <a href="about.html">About</a>
+      <a class="nav-cta" href="about.html#contact">Hire me</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+  <!-- ================= HERO ================= -->
+  <header class="page-hero wrap">
+    <div class="pix-hero-grid">
+      <div class="pix-hero-copy">
+        <p class="crumb reveal"><a href="index.html">Home</a> / Pixel Art</p>
+        <h1 class="reveal" data-d="1">Pixel Art &amp;<br><span class="gradient-text">Animation</span></h1>
+        <p class="lead reveal" data-d="2">
+          Tight, readable sprites and looping animation built pixel-by-pixel — characters,
+          item sets, tilesets and walk cycles on a disciplined palette. Scroll down for a
+          live in-browser pixel editor you can actually draw in.
+        </p>
+        <div class="meta-row reveal" data-d="3">
+          <div class="m"><b>16-colour</b><span>shared palette</span></div>
+          <div class="m"><b>12 fps</b><span>animation cycles</span></div>
+          <div class="m"><b>Tile-based</b><span>seamless sets</span></div>
+        </div>
+        <div class="tools mt-m reveal" data-d="4">
+          <span class="tool primary"><span class="dot dot-aseprite"></span>Aseprite</span>
+          <span class="tool"><span class="dot dot-piskel"></span>Piskel</span>
+          <span class="tool"><span class="dot dot-libresprite"></span>Libresprite</span>
+          <span class="tool"><span class="dot dot-graphicsgale"></span>GraphicsGale</span>
+        </div>
+      </div>
+
+      <!-- Hero showpiece: big Vela idle on a panel -->
+      <div class="pix-hero-art reveal" data-d="2" aria-hidden="true">
+        <div class="pix-stage">
+          <canvas id="pix-cv-vela" class="pix-canvas"></canvas>
+        </div>
+        <div class="pix-stage-label mono">vela_idle · 16×16 · 22×</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= GALLERY ================= -->
+  <section class="section wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Sprite work</span>
+      <h2>A small, cohesive sprite library</h2>
+      <p>Every piece sits on the same 16-colour ramp so characters, items and environments
+         read as one world. Hard outlines, anti-aliased only where it earns its keep.</p>
+    </div>
+
+    <div class="grid cols-2">
+
+      <!-- 1. Vela idle -->
+      <article class="card reveal">
+        <div class="card-media pix-media">
+          <span class="card-tag">Character</span>
+          <div class="pix-media-inner">
+            <canvas id="pix-cv-vela2" class="pix-canvas" role="img" aria-label="Vela the fox in her idle pose: coral body, cream face-mask and belly, big triangular ears and a teal scarf, drawn at 16 by 16 pixels."></canvas>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3>Vela — studio mascot</h3>
+          <p>The little teal-scarfed fox in her idle pose. Cream face-mask and belly,
+             warm coral body gradient, big triangular ears — designed to stay legible at 16×16.</p>
+          <div class="tools">
+            <span class="tool primary"><span class="dot dot-aseprite"></span>Aseprite</span>
+            <span class="tool"><span class="dot dot-libresprite"></span>Libresprite</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2. Item set -->
+      <article class="card reveal" data-d="1">
+        <div class="card-media pix-media">
+          <span class="card-tag">Item set</span>
+          <div class="pix-items">
+            <figure><canvas id="pix-cv-coin" class="pix-canvas" role="img" aria-label="Pixel-art gold coin with a shine highlight"></canvas><figcaption class="mono">coin</figcaption></figure>
+            <figure><canvas id="pix-cv-potion" class="pix-canvas" role="img" aria-label="Pixel-art blue health potion in a corked bottle"></canvas><figcaption class="mono">potion</figcaption></figure>
+            <figure><canvas id="pix-cv-sword" class="pix-canvas" role="img" aria-label="Pixel-art hero sword with a steel blade and amber hilt"></canvas><figcaption class="mono">sword</figcaption></figure>
+            <figure><canvas id="pix-cv-gem" class="pix-canvas" role="img" aria-label="Pixel-art faceted teal gem with a highlight"></canvas><figcaption class="mono">gem</figcaption></figure>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3>Loot &amp; pickups</h3>
+          <p>A four-piece inventory set — spinning coin, health potion, hero sword and a teal gem.
+             Consistent rim-light and a single shadow direction across the whole kit.</p>
+          <div class="tools">
+            <span class="tool primary"><span class="dot dot-aseprite"></span>Aseprite</span>
+            <span class="tool"><span class="dot dot-piskel"></span>Piskel</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3. Environment strip -->
+      <article class="card reveal" data-d="2">
+        <div class="card-media pix-media pix-media-wide">
+          <span class="card-tag">Tileset</span>
+          <div class="pix-media-inner pix-env">
+            <canvas id="pix-cv-env" class="pix-canvas" role="img" aria-label="Seamless pixel-art meadow parallax strip: rolling green hills, a lone tree and a stone-stepped path, tileable horizontally."></canvas>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3>Meadow parallax strip</h3>
+          <p>A seamless ground band — rolling hills, a lone tree and a stone-stepped path,
+             tileable horizontally for a side-scrolling parallax background.</p>
+          <div class="tools">
+            <span class="tool primary"><span class="dot dot-aseprite"></span>Aseprite</span>
+            <span class="tool"><span class="dot dot-graphicsgale"></span>GraphicsGale</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4. Enemy / NPC -->
+      <article class="card reveal" data-d="3">
+        <div class="card-media pix-media">
+          <span class="card-tag">Enemy</span>
+          <div class="pix-media-inner">
+            <canvas id="pix-cv-enemy" class="pix-canvas" role="img" aria-label="Drift, a violet floating sky-slime enemy with two glowing eyes, a blush underside and dangling tendrils."></canvas>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3>Drift — violet sky-slime</h3>
+          <p>A floating enemy concept with dangling tendrils and a blush underside.
+             Built to read instantly against the meadow palette as a clear threat colour.</p>
+          <div class="tools">
+            <span class="tool primary"><span class="dot dot-aseprite"></span>Aseprite</span>
+            <span class="tool"><span class="dot dot-libresprite"></span>Libresprite</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= WALK CYCLE ================= -->
+  <section class="section wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Animation</span>
+      <h2>Vela's walk cycle</h2>
+      <p>Four frames, hand-keyed: a gentle body bob, alternating feet and a tail that swings
+         to sell the weight. Below, the individual frames and the loop playing live.</p>
+    </div>
+
+    <div class="panel pix-walk reveal">
+      <div class="pix-walk-strip" aria-hidden="true">
+        <figure><canvas id="pix-cv-walk0" class="pix-canvas"></canvas><figcaption class="mono">01</figcaption></figure>
+        <figure><canvas id="pix-cv-walk1" class="pix-canvas"></canvas><figcaption class="mono">02</figcaption></figure>
+        <figure><canvas id="pix-cv-walk2" class="pix-canvas"></canvas><figcaption class="mono">03</figcaption></figure>
+        <figure><canvas id="pix-cv-walk3" class="pix-canvas"></canvas><figcaption class="mono">04</figcaption></figure>
+      </div>
+
+      <div class="pix-walk-play">
+        <div class="pix-stage pix-stage-sm">
+          <canvas id="pix-cv-walkplay" class="pix-canvas" aria-label="Animated walk cycle of Vela the fox"></canvas>
+        </div>
+        <div class="pix-walk-controls">
+          <button id="pix-walk-toggle" class="pix-btn" type="button" aria-pressed="true">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+            <span data-label>Pause</span>
+          </button>
+          <label class="pix-speed">
+            <span class="mono">Speed</span>
+            <input id="pix-walk-speed" type="range" min="2" max="16" step="1" value="8" aria-label="Animation speed in frames per second">
+            <output id="pix-walk-fps" class="mono">8 fps</output>
+          </label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LIVE EDITOR ================= -->
+  <section class="section wrap" id="editor">
+    <div class="section-head reveal">
+      <span class="eyebrow">Try it yourself</span>
+      <h2>Live pixel editor</h2>
+      <p>A real tiny editor — pick a colour, choose a tool and draw. Works with mouse or touch.
+         Flood-fill, eyedropper, a grid toggle and a one-click PNG export at print scale.</p>
+    </div>
+
+    <div class="pix-editor-wrap reveal">
+
+      <!-- LEFT: toolbar + palette -->
+      <aside class="panel pix-tools">
+        <div class="pix-tools-block">
+          <h4 class="pix-tools-h mono">Tool · <span id="pix-tool-name">Pencil</span></h4>
+          <div class="pix-toolbar" role="toolbar" aria-label="Drawing tools">
+            <button class="pix-tool-btn" data-tool="pencil" type="button" aria-pressed="true" aria-label="Pencil (B)" title="Pencil — B">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+              <span>Pencil</span>
+            </button>
+            <button class="pix-tool-btn" data-tool="eraser" type="button" aria-pressed="false" aria-label="Eraser (E)" title="Eraser — E">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 20H7L3 16a2 2 0 010-3l9-9a2 2 0 013 0l5 5a2 2 0 010 3l-7 7"/><path d="M9 9l6 6"/></svg>
+              <span>Eraser</span>
+            </button>
+            <button class="pix-tool-btn" data-tool="fill" type="button" aria-pressed="false" aria-label="Fill (F)" title="Flood fill — F">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 11l-8-8-7 7a2 2 0 000 3l5 5a2 2 0 003 0l7-7z"/><path d="M5 13h13"/><path d="M21 16s-2 2.5-2 4a2 2 0 004 0c0-1.5-2-4-2-4z"/></svg>
+              <span>Fill</span>
+            </button>
+            <button class="pix-tool-btn" data-tool="eyedropper" type="button" aria-pressed="false" aria-label="Eyedropper (I)" title="Eyedropper — I">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 11l-7 7v3h3l7-7"/><path d="M13 9l5-5a2.1 2.1 0 013 3l-5 5"/><path d="M14 6l4 4"/></svg>
+              <span>Pick</span>
+            </button>
+          </div>
+          <div class="pix-tool-extra">
+            <button id="pix-grid-toggle" class="pix-btn active" type="button" aria-pressed="true" title="Toggle grid — G">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>
+              Grid
+            </button>
+            <button id="pix-clear" class="pix-btn" type="button" title="Clear canvas">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg>
+              Clear
+            </button>
+          </div>
+        </div>
+
+        <hr class="divider pix-div">
+
+        <div class="pix-tools-block">
+          <h4 class="pix-tools-h mono">Palette
+            <span class="pix-current"><span id="pix-current-chip" class="pix-chip" aria-hidden="true"></span></span>
+          </h4>
+          <div id="pix-swatches" class="pix-swatches" role="group" aria-label="Colour swatches"></div>
+          <label class="pix-custom">
+            <span class="mono">Custom</span>
+            <input id="pix-custom-col" type="color" value="#ff5e7d" aria-label="Pick a custom colour">
+          </label>
+        </div>
+
+        <hr class="divider pix-div">
+
+        <div class="pix-tools-block">
+          <label class="pix-size-row" for="pix-size">
+            <span class="pix-tools-h mono">Canvas size</span>
+            <select id="pix-size" class="pix-select">
+              <option value="8">8 × 8</option>
+              <option value="16" selected>16 × 16</option>
+              <option value="24">24 × 24</option>
+              <option value="32">32 × 32</option>
+            </select>
+          </label>
+          <button id="pix-export" class="btn btn-primary pix-export" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+            Export PNG
+          </button>
+          <p class="pix-hint mono">Shortcuts: <span class="kbd">B</span> pencil · <span class="kbd">E</span> erase · <span class="kbd">F</span> fill · <span class="kbd">I</span> pick · <span class="kbd">G</span> grid</p>
+        </div>
+      </aside>
+
+      <!-- RIGHT: the canvas -->
+      <div class="panel pix-canvas-panel">
+        <div class="pix-canvas-frame">
+          <canvas id="pix-editor" class="pix-canvas pix-editor-cv" aria-label="Pixel drawing canvas — click or drag to paint"></canvas>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <div>
+      <h4>Let's make<br>something good.</h4>
+      <p>2D &amp; 3D digital media — pixel art, vector, illustration, 3D, game art and compositing.</p>
+      <div class="tools" style="margin-top:18px">
+        <span class="tool primary"><span class="dot dot-unity"></span>Unity</span>
+        <span class="tool primary"><span class="dot dot-ps"></span>Photoshop</span>
+        <span class="tool primary"><span class="dot dot-figma"></span>Figma</span>
+        <span class="tool primary"><span class="dot dot-blender"></span>Blender</span>
+      </div>
+    </div>
+    <div class="foot-col">
+      <h5>Work</h5>
+      <a href="pixel.html">Pixel Art</a>
+      <a href="vector.html">Vector &amp; Illustration</a>
+      <a href="painting.html">Digital Painting</a>
+      <a href="threed.html">3D Modelling</a>
+      <a href="photo.html">Photo &amp; Composite</a>
+      <a href="game.html">Playable Demo</a>
+    </div>
+    <div class="foot-col">
+      <h5>Connect</h5>
+      <a href="about.html">About &amp; process</a>
+      <a href="mailto:ethanmcao@gmail.com">ethanmcao@gmail.com</a>
+      <a href="about.html#contact">Start a project</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© <span data-year></span> Ethan Cao · Digital Media</span>
+    <span>Hand-built · San Jose, CA</span>
+  </div>
+</footer>
+
+<script src="assets/js/pixel.js"></script>
+<script src="assets/js/components.js"></script>
+
+<style>
+/* =====================================================================
+   PIXEL PAGE — all selectors prefixed .pix-  (no shared-class overrides)
+   ===================================================================== */
+
+/* crisp pixels everywhere on this page's sprite canvases */
+.pix-canvas { image-rendering: pixelated; image-rendering: crisp-edges; }
+
+/* ---------- Hero ---------- */
+.pix-hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: clamp(28px, 5vw, 64px);
+  align-items: center;
+}
+.pix-hero-copy h1 { font-size: clamp(2.4rem, 6vw, 4.4rem); }
+.pix-hero-art { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.pix-stage {
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 1/1;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  border-radius: var(--r-xl);
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(120% 120% at 30% 20%, rgba(139,108,255,.16), transparent 60%),
+    repeating-conic-gradient(#13151e 0% 25%, #171a25 0% 50%) 0 0 / 28px 28px,
+    var(--bg-2);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+.pix-stage::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(160deg, rgba(46,230,196,.10), transparent 40%);
+}
+.pix-stage .pix-canvas { width: auto; height: auto; max-width: 100%; max-height: 100%; }
+.pix-stage-sm { max-width: 240px; }
+.pix-stage-label { font-size: .72rem; letter-spacing: .12em; color: var(--faint); text-transform: uppercase; }
+
+/* ---------- Gallery media ---------- */
+.pix-media { display: grid; place-items: center; padding: 24px;
+  background:
+    radial-gradient(120% 120% at 30% 10%, rgba(139,108,255,.10), transparent 55%),
+    repeating-conic-gradient(#13151e 0% 25%, #171a25 0% 50%) 0 0 / 24px 24px,
+    var(--bg-2);
+}
+.pix-media-inner { display: grid; place-items: center; width: 100%; height: 100%; }
+.pix-media-inner .pix-canvas,
+.pix-env .pix-canvas { width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; }
+.pix-media-wide .pix-env { width: 100%; }
+.pix-env .pix-canvas { width: 100%; }
+
+/* item grid inside a card */
+.pix-items {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
+  width: 100%; height: 100%; place-items: center; padding: 4px;
+}
+.pix-items figure { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.pix-items figcaption,
+.pix-walk-strip figcaption,
+.pix-items .pix-canvas { /* caption styling */ }
+.pix-items figcaption { font-size: .64rem; letter-spacing: .1em; color: var(--faint); text-transform: uppercase; }
+.pix-items .pix-canvas { width: auto; height: auto; max-height: 72px; }
+
+/* ---------- Walk cycle ---------- */
+.pix-walk { padding: clamp(20px, 3vw, 34px); display: grid; grid-template-columns: 1fr; gap: 28px; }
+.pix-walk-strip {
+  display: flex; flex-wrap: wrap; gap: 14px; justify-content: center;
+  padding: 18px; border-radius: var(--r); border: 1px solid var(--line); background: var(--bg-2);
+}
+.pix-walk-strip figure {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  padding: 10px; border-radius: 12px; background: var(--panel-2); border: 1px solid var(--line);
+}
+.pix-walk-strip figcaption { font-family: var(--font-mono); font-size: .66rem; letter-spacing: .14em; color: var(--faint); }
+.pix-walk-strip .pix-canvas { width: auto; height: auto; }
+
+.pix-walk-play { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; justify-content: center; }
+.pix-walk-play .pix-stage { aspect-ratio: 1/1; padding: 18px; }
+.pix-walk-controls { display: flex; flex-direction: column; gap: 16px; min-width: 220px; }
+.pix-speed { display: flex; align-items: center; gap: 12px; font-size: .78rem; color: var(--muted); }
+.pix-speed input[type="range"] { flex: 1; accent-color: var(--teal); }
+.pix-speed output { min-width: 56px; color: var(--text); }
+
+/* ---------- Buttons (page-local) ---------- */
+.pix-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono); font-size: .76rem; letter-spacing: .04em;
+  padding: 9px 14px; border-radius: 10px;
+  background: var(--panel-2); border: 1px solid var(--line); color: var(--muted);
+  transition: border-color .2s, color .2s, background .2s, transform .15s;
+}
+.pix-btn:hover { color: var(--text); border-color: var(--line-2); transform: translateY(-1px); }
+.pix-btn.active { color: #0a0b0f; background: var(--teal); border-color: var(--teal); }
+.pix-btn svg { flex: none; }
+
+/* ---------- Editor layout ---------- */
+.pix-editor-wrap {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 22px;
+  align-items: start;
+}
+.pix-tools { padding: 22px; position: sticky; top: 86px; }
+.pix-tools-block { display: block; }
+.pix-tools-h {
+  font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--faint);
+  margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+}
+.pix-tools-h span#pix-tool-name { color: var(--teal); }
+.pix-div { margin-block: 20px; }
+
+.pix-toolbar { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.pix-tool-btn {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  padding: 12px 6px; border-radius: 12px;
+  background: var(--panel-2); border: 1px solid var(--line); color: var(--muted);
+  font-family: var(--font-mono); font-size: .7rem; letter-spacing: .03em;
+  transition: border-color .2s, color .2s, background .2s, transform .15s;
+}
+.pix-tool-btn:hover { color: var(--text); border-color: var(--line-2); transform: translateY(-1px); }
+.pix-tool-btn.active {
+  color: var(--text); border-color: var(--teal);
+  background: linear-gradient(180deg, rgba(46,230,196,.14), rgba(46,230,196,.04));
+  box-shadow: 0 0 0 1px rgba(46,230,196,.3) inset;
+}
+.pix-tool-btn.active svg { color: var(--teal); }
+.pix-tool-extra { display: flex; gap: 8px; margin-top: 10px; }
+.pix-tool-extra .pix-btn { flex: 1; justify-content: center; }
+
+/* swatches */
+.pix-current { margin-left: auto; }
+.pix-chip {
+  display: inline-block; width: 18px; height: 18px; border-radius: 5px;
+  border: 1px solid var(--line-2); box-shadow: 0 0 0 2px var(--panel);
+}
+.pix-swatches { display: grid; grid-template-columns: repeat(8, 1fr); gap: 6px; }
+.pix-swatch {
+  aspect-ratio: 1/1; border-radius: 6px; border: 1px solid rgba(255,255,255,.08);
+  padding: 0; transition: transform .12s, box-shadow .12s; position: relative;
+}
+.pix-swatch:hover { transform: scale(1.12); z-index: 1; }
+.pix-swatch.active {
+  box-shadow: 0 0 0 2px var(--panel), 0 0 0 4px var(--teal);
+  transform: scale(1.08);
+}
+.pix-custom {
+  display: flex; align-items: center; gap: 10px; margin-top: 14px;
+  font-family: var(--font-mono); font-size: .72rem; color: var(--muted);
+}
+.pix-custom input[type="color"] {
+  width: 44px; height: 30px; padding: 0; border: 1px solid var(--line-2);
+  border-radius: 8px; background: var(--panel-2);
+}
+
+/* size + export */
+.pix-size-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 16px; }
+.pix-size-row .pix-tools-h { margin-bottom: 0; }
+.pix-select {
+  font-family: var(--font-mono); font-size: .78rem; color: var(--text);
+  background: var(--panel-2); border: 1px solid var(--line); border-radius: 10px;
+  padding: 8px 10px;
+}
+.pix-export { width: 100%; justify-content: center; }
+.pix-hint { font-size: .68rem; color: var(--faint); margin-top: 14px; line-height: 1.9; }
+.pix-hint .kbd { font-size: .68rem; }
+
+/* canvas panel */
+.pix-canvas-panel {
+  display: grid; place-items: center; padding: clamp(18px, 3vw, 34px);
+  background:
+    radial-gradient(120% 120% at 20% 0%, rgba(139,108,255,.08), transparent 55%),
+    var(--panel);
+}
+.pix-canvas-frame {
+  width: 100%; max-width: 560px; aspect-ratio: 1/1;
+  border-radius: var(--r); overflow: hidden;
+  border: 1px solid var(--line-2);
+  box-shadow: var(--shadow), 0 0 0 6px rgba(10,11,15,.5);
+  background: #11131c;
+}
+.pix-editor-cv {
+  width: 100%; height: 100%; display: block;
+  cursor: crosshair; touch-action: none;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 920px) {
+  .pix-hero-grid { grid-template-columns: 1fr; }
+  .pix-hero-art { order: -1; max-width: 320px; }
+  .pix-editor-wrap { grid-template-columns: 1fr; }
+  .pix-tools { position: static; }
+}
+@media (max-width: 520px) {
+  .pix-toolbar { grid-template-columns: repeat(2, 1fr); }
+  .pix-swatches { grid-template-columns: repeat(8, 1fr); }
+  .pix-walk-play { gap: 18px; }
+  .pix-walk-controls { min-width: 100%; }
+}
+@media (max-width: 380px) {
+  .pix-swatches { grid-template-columns: repeat(8, 1fr); gap: 4px; }
+}
+</style>
+
+</body>
+</html>

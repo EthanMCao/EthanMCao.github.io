@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Play — Vela's Run · Ethan Cao</title>
+<meta name="description" content="A playable browser platformer starring Vela — game art, design and a custom real-time engine.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="assets/svg/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/studio.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html" aria-label="Ethan Cao — Digital Media, home">
+      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+        <defs><linearGradient id="nlg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#ff5e7d"/><stop offset=".52" stop-color="#8b6cff"/><stop offset="1" stop-color="#2ee6c4"/>
+        </linearGradient></defs>
+        <rect width="64" height="64" rx="15" fill="#0f1017"/>
+        <path d="M14 16 L26 22 L20 30 Z" fill="url(#nlg)"/><path d="M50 16 L38 22 L44 30 Z" fill="url(#nlg)"/>
+        <path d="M16 24 L32 20 L48 24 L40 40 L32 46 L24 40 Z" fill="url(#nlg)"/>
+        <path d="M32 20 L48 24 L40 40 Z" fill="#000" opacity=".16"/>
+        <path d="M24 40 L32 46 L40 40 L32 43 Z" fill="#0f1017"/>
+        <path d="M25 28 l4 2 -4 2 z" fill="#0f1017"/><path d="M39 28 l-4 2 4 2 z" fill="#0f1017"/>
+        <path d="M24 41 L32 47 L40 41 L40 44 L32 50 L24 44 Z" fill="#2ee6c4"/>
+      </svg>
+      <span>Ethan Cao<small>Digital Media</small></span>
+    </a>
+    <button class="nav-burger" aria-label="Toggle menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <div class="nav-links">
+      <a href="pixel.html">Pixel</a>
+      <a href="vector.html">Vector</a>
+      <a href="painting.html">Painting</a>
+      <a href="threed.html">3D</a>
+      <a href="photo.html">Photo</a>
+      <a href="game.html">Play</a>
+      <a href="about.html">About</a>
+      <a class="nav-cta" href="about.html#contact">Hire me</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+<section class="page-hero" style="padding-bottom:24px">
+  <div class="wrap">
+    <div class="crumb reveal"><a href="index.html">Home</a> / Play</div>
+    <h1 class="reveal" data-d="1"><span class="gradient-text">Vela's Run</span> — a playable build.</h1>
+    <p class="lead reveal" data-d="2">Game art, level design and a hand-written real-time engine. Collect the coins, stomp the slimes, reach the flag. Plays with keyboard or touch.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:8px">
+  <div class="wrap">
+    <div class="game-wrap reveal">
+      <div class="game-bar">
+        <div class="tools">
+          <span class="tool primary"><span class="dot dot-unity"></span>Unity</span>
+          <span class="tool"><span class="dot dot-godot"></span>Godot</span>
+          <span class="tool"><span class="dot dot-aseprite"></span>Aseprite</span>
+        </div>
+        <div class="game-bar-actions">
+          <button class="vt-btn" id="game-pause" title="Pause / resume">Pause</button>
+          <button class="vt-btn active" id="game-start" title="Restart">Restart</button>
+        </div>
+      </div>
+      <div class="game-stage">
+        <canvas id="game" width="960" height="540" aria-label="Vela's Run — playable platformer game"></canvas>
+        <!-- touch controls -->
+        <div class="touch touch-left">
+          <button id="btn-left" class="tbtn" aria-label="Move left">◀</button>
+          <button id="btn-right" class="tbtn" aria-label="Move right">▶</button>
+        </div>
+        <div class="touch touch-right">
+          <button id="btn-jump" class="tbtn tbtn-jump" aria-label="Jump">▲</button>
+        </div>
+      </div>
+      <div class="game-foot">
+        <span><span class="kbd">← →</span> / <span class="kbd">A</span><span class="kbd">D</span> move</span>
+        <span><span class="kbd">↑</span> / <span class="kbd">W</span> / <span class="kbd">Space</span> jump</span>
+        <span><span class="kbd">P</span> pause</span>
+        <span class="mono" style="color:var(--faint)">on mobile, use the on-screen pad</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GAME ART ===== -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Behind the build</span>
+      <h2>The art that makes it run.</h2>
+      <p>Every sprite, tile and effect in the build is original — designed for a real-time loop and a consistent stylised look.</p>
+    </div>
+    <div class="grid cols-3">
+      <article class="card reveal">
+        <div class="card-media">
+          <span class="card-tag">Design</span>
+          <svg viewBox="0 0 320 240" preserveAspectRatio="xMidYMid slice" aria-label="Character design sheet">
+            <rect width="320" height="240" fill="#12131c"/>
+            <g shape-rendering="crispEdges">
+              <g transform="translate(60,70) scale(2.4)">
+                <rect x="6" y="0" width="6" height="6" fill="#ff7a5e"/><rect x="24" y="0" width="6" height="6" fill="#ff7a5e"/>
+                <rect x="0" y="6" width="36" height="18" fill="#ff8a5c"/><rect x="6" y="10" width="24" height="10" fill="#fff3e8"/>
+                <rect x="10" y="12" width="4" height="4" fill="#241a26"/><rect x="22" y="12" width="4" height="4" fill="#241a26"/>
+                <rect x="0" y="24" width="36" height="6" fill="#2ee6c4"/><rect x="4" y="30" width="28" height="14" fill="#ff8a5c"/>
+                <rect x="8" y="34" width="20" height="8" fill="#fff3e8"/>
+              </g>
+            </g>
+            <text x="160" y="220" fill="#626a80" font-family="monospace" font-size="11" text-anchor="middle">VELA · player character</text>
+          </svg>
+        </div>
+        <div class="card-body"><h3>Character design</h3><p>Readable silhouette tuned for a 34px sprite in motion.</p>
+          <div class="tools"><span class="tool"><span class="dot dot-aseprite"></span>Aseprite</span><span class="tool primary"><span class="dot dot-figma"></span>Figma</span></div></div>
+      </article>
+
+      <article class="card reveal" data-d="1">
+        <div class="card-media">
+          <span class="card-tag">Tiles</span>
+          <svg viewBox="0 0 320 240" preserveAspectRatio="xMidYMid slice" aria-label="Environment tileset">
+            <rect width="320" height="240" fill="#0e1726"/>
+            <g shape-rendering="crispEdges">
+              <rect x="0" y="150" width="320" height="90" fill="#6f4730"/>
+              <rect x="0" y="150" width="320" height="14" fill="#8a5a3c"/>
+              <rect x="0" y="138" width="320" height="14" fill="#57b368"/>
+              <g fill="#3f8d52"><rect x="10" y="128" width="6" height="10"/><rect x="30" y="128" width="6" height="10"/><rect x="50" y="128" width="6" height="10"/><rect x="70" y="128" width="6" height="10"/></g>
+              <rect x="120" y="90" width="80" height="20" fill="#6f4730"/><rect x="120" y="82" width="80" height="10" fill="#57b368"/>
+            </g>
+            <circle cx="250" cy="60" r="22" fill="#ffe2a8"/>
+          </svg>
+        </div>
+        <div class="card-body"><h3>Tileset &amp; parallax</h3><p>Grass-topped terrain plus layered parallax hills and fireflies.</p>
+          <div class="tools"><span class="tool"><span class="dot dot-aseprite"></span>Aseprite</span><span class="tool primary"><span class="dot dot-ps"></span>Photoshop</span></div></div>
+      </article>
+
+      <article class="card reveal" data-d="2">
+        <div class="card-media">
+          <span class="card-tag">FX</span>
+          <svg viewBox="0 0 320 240" preserveAspectRatio="xMidYMid slice" aria-label="Items and effects">
+            <rect width="320" height="240" fill="#15131f"/>
+            <circle cx="90" cy="100" r="20" fill="#ffc24b"/><ellipse cx="84" cy="94" rx="6" ry="8" fill="#ffe08a"/>
+            <g fill="#2ee6c4"><circle cx="190" cy="80" r="4"/><circle cx="220" cy="120" r="3"/><circle cx="170" cy="140" r="3"/></g>
+            <g fill="#ff5e7d"><circle cx="230" cy="90" r="3"/><circle cx="200" cy="150" r="4"/></g>
+            <polygon points="250,40 256,54 270,54 259,63 263,77 250,69 237,77 241,63 230,54 244,54" fill="#ffe08a"/>
+            <g transform="translate(110,160)"><path d="M0 0 q 22 -16 44 0 l 0 18 -44 0 z" fill="#8b6cff"/><circle cx="14" cy="6" r="4" fill="#fff"/><circle cx="30" cy="6" r="4" fill="#fff"/></g>
+          </svg>
+        </div>
+        <div class="card-body"><h3>Items, enemies &amp; FX</h3><p>Coins, slimes and burst particles — juice that sells the feel.</p>
+          <div class="tools"><span class="tool primary"><span class="dot dot-unity"></span>Unity</span><span class="tool"><span class="dot dot-godot"></span>Godot</span></div></div>
+      </article>
+    </div>
+
+    <div class="panel game-note reveal" style="margin-top:26px">
+      <p><strong>On the engine —</strong> this build runs on a small custom canvas engine (fixed-step physics, AABB collision, coyote-time &amp; jump-buffering for feel, parallax and a particle system). The same character, art and mechanics prototype cleanly into Unity or Godot — the toolchain I reach for on larger projects.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <div>
+      <h4>Let's make<br>something good.</h4>
+      <p>2D &amp; 3D digital media — pixel art, vector, illustration, 3D, game art and compositing.</p>
+      <div class="tools" style="margin-top:18px">
+        <span class="tool primary"><span class="dot dot-unity"></span>Unity</span>
+        <span class="tool primary"><span class="dot dot-ps"></span>Photoshop</span>
+        <span class="tool primary"><span class="dot dot-figma"></span>Figma</span>
+        <span class="tool primary"><span class="dot dot-blender"></span>Blender</span>
+      </div>
+    </div>
+    <div class="foot-col">
+      <h5>Work</h5>
+      <a href="pixel.html">Pixel Art</a>
+      <a href="vector.html">Vector &amp; Illustration</a>
+      <a href="painting.html">Digital Painting</a>
+      <a href="threed.html">3D Modelling</a>
+      <a href="photo.html">Photo &amp; Composite</a>
+      <a href="game.html">Playable Demo</a>
+    </div>
+    <div class="foot-col">
+      <h5>Connect</h5>
+      <a href="about.html">About &amp; process</a>
+      <a href="mailto:ethanmcao@gmail.com">ethanmcao@gmail.com</a>
+      <a href="about.html#contact">Start a project</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© <span data-year></span> Ethan Cao · Digital Media</span>
+    <span>Hand-built · San Jose, CA</span>
+  </div>
+</footer>
+
+<script src="assets/js/game.js"></script>
+<script src="assets/js/components.js"></script>
+
+<style>
+.game-wrap{border:1px solid var(--line);border-radius:var(--r-xl);overflow:hidden;background:linear-gradient(180deg,var(--panel),var(--bg-2))}
+.game-bar{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding:13px 16px;border-bottom:1px solid var(--line);background:rgba(13,14,22,.6)}
+.game-bar-actions{display:flex;gap:8px}
+.vt-btn{font-family:var(--font-display);font-weight:600;font-size:.84rem;color:var(--muted);background:var(--bg-2);border:1px solid var(--line);padding:8px 16px;border-radius:999px;transition:background .2s,color .2s}
+.vt-btn:hover{color:var(--text)}
+.vt-btn.active{background:var(--text);color:#0a0b0f;border-color:transparent}
+.game-stage{position:relative;background:#241b3e;aspect-ratio:16/9}
+#game{display:block;width:100%;height:100%;touch-action:none}
+.touch{position:absolute;bottom:16px;display:none;gap:12px;z-index:3}
+.touch-left{left:16px}.touch-right{right:16px}
+.tbtn{width:60px;height:60px;border-radius:50%;border:1px solid var(--line-2);background:rgba(20,22,31,.62);backdrop-filter:blur(6px);color:var(--text);font-size:1.3rem;line-height:1;display:grid;place-items:center;user-select:none;-webkit-user-select:none}
+.tbtn.held{background:var(--brand-soft);border-color:var(--violet)}
+.tbtn-jump{width:74px;height:74px;background:rgba(46,230,196,.18);border-color:var(--teal);color:var(--teal)}
+@media(hover:none) and (pointer:coarse){.touch{display:flex}}
+.game-foot{display:flex;flex-wrap:wrap;gap:18px;align-items:center;padding:14px 18px;border-top:1px solid var(--line);color:var(--muted);font-size:.86rem;background:rgba(13,14,22,.5)}
+.game-note p{color:var(--muted);padding:clamp(20px,3vw,30px);font-size:.98rem}
+.game-note strong{color:var(--text)}
+</style>
+</body>
+</html>

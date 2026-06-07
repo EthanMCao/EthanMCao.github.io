@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D Modelling &amp; Render — Ethan Cao</title>
+<meta name="description" content="Real-time low-poly 3D — stylised models and dioramas modelled in Blender and explorable live in the browser.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="assets/svg/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/studio.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html" aria-label="Ethan Cao — Digital Media, home">
+      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+        <defs><linearGradient id="nlg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#ff5e7d"/><stop offset=".52" stop-color="#8b6cff"/><stop offset="1" stop-color="#2ee6c4"/>
+        </linearGradient></defs>
+        <rect width="64" height="64" rx="15" fill="#0f1017"/>
+        <path d="M14 16 L26 22 L20 30 Z" fill="url(#nlg)"/><path d="M50 16 L38 22 L44 30 Z" fill="url(#nlg)"/>
+        <path d="M16 24 L32 20 L48 24 L40 40 L32 46 L24 40 Z" fill="url(#nlg)"/>
+        <path d="M32 20 L48 24 L40 40 Z" fill="#000" opacity=".16"/>
+        <path d="M24 40 L32 46 L40 40 L32 43 Z" fill="#0f1017"/>
+        <path d="M25 28 l4 2 -4 2 z" fill="#0f1017"/><path d="M39 28 l-4 2 4 2 z" fill="#0f1017"/>
+        <path d="M24 41 L32 47 L40 41 L40 44 L32 50 L24 44 Z" fill="#2ee6c4"/>
+      </svg>
+      <span>Ethan Cao<small>Digital Media</small></span>
+    </a>
+    <button class="nav-burger" aria-label="Toggle menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <div class="nav-links">
+      <a href="pixel.html">Pixel</a>
+      <a href="vector.html">Vector</a>
+      <a href="painting.html">Painting</a>
+      <a href="threed.html">3D</a>
+      <a href="photo.html">Photo</a>
+      <a href="game.html">Play</a>
+      <a href="about.html">About</a>
+      <a class="nav-cta" href="about.html#contact">Hire me</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ===== HERO ===== -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="crumb reveal"><a href="index.html">Home</a> / 3D Modelling &amp; Render</div>
+    <h1 class="reveal" data-d="1">Real-time <span class="gradient-text">3D</span>, in your browser.</h1>
+    <p class="lead reveal" data-d="2">Stylised low-poly models and dioramas — modelled, shaded and lit, then exported to run live on the web. Grab any model and spin it.</p>
+    <div class="meta-row reveal" data-d="3">
+      <div class="m"><b>Low-poly</b><span>flat-shaded style</span></div>
+      <div class="m"><b>Real-time</b><span>WebGL · 60fps</span></div>
+      <div class="m"><b>Game-ready</b><span>clean topology</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LIVE VIEWER ===== -->
+<section class="section" style="padding-top:8px">
+  <div class="wrap">
+    <div class="section-head reveal" style="margin-bottom:28px">
+      <span class="eyebrow">Live · real-time</span>
+      <h2>Spin it yourself.</h2>
+      <p>This is the actual mesh — exported and rendered live in WebGL, not a video. Drag to orbit, scroll to zoom, or tab in and use the arrow keys.</p>
+    </div>
+    <div class="viewer-shell reveal">
+      <div class="viewer-toolbar" role="toolbar" aria-label="3D viewer controls">
+        <div class="vt-group" role="group" aria-label="Choose model">
+          <button class="vt-btn active" data-model="vela" aria-pressed="true">Vela</button>
+          <button class="vt-btn" data-model="island" aria-pressed="false">Diorama</button>
+          <button class="vt-btn" data-model="crystal" aria-pressed="false">Crystals</button>
+          <button class="vt-btn" data-model="mushroom" aria-pressed="false">Mushroom</button>
+        </div>
+        <div class="vt-group" role="group" aria-label="View options">
+          <button class="vt-btn active" id="btn-rotate" aria-pressed="true" title="Toggle turntable">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-3-6.7M21 4v4h-4"/></svg> Spin
+          </button>
+          <button class="vt-btn" id="btn-wire" aria-pressed="false" title="Toggle wireframe">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7l9-4 9 4-9 4-9-4zM3 7v10l9 4 9-4V7M12 11v10"/></svg> Wire
+          </button>
+          <button class="vt-btn" id="btn-reset" title="Reset view">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9 9 0 0 0-6.4 2.6L3 8M3 3v5h5"/></svg> Reset
+          </button>
+        </div>
+      </div>
+
+      <div class="viewer-stage">
+        <div id="viewer" aria-label="3D model viewport"></div>
+        <div id="viewer-loading" class="viewer-loading"><span class="spinner"></span> Loading 3D…</div>
+        <div id="viewer-fallback" class="viewer-fallback">
+          <div>
+            <svg viewBox="0 0 120 120" width="90" height="90" aria-hidden="true"><polygon points="60,14 102,38 102,82 60,106 18,82 18,38" fill="none" stroke="#8b6cff" stroke-width="3"/><polygon points="60,14 102,38 60,62 18,38" fill="#8b6cff" opacity=".25"/></svg>
+            <p>Loading the live viewer…</p>
+          </div>
+        </div>
+        <span class="viewer-hint mono">drag to orbit · scroll to zoom</span>
+      </div>
+
+      <div class="viewer-info panel" id="model-info">
+        <div>
+          <h3>Vela — Mascot</h3>
+          <p>The studio mascot, modelled low-poly with a stylised flat-shaded look and her signature teal scarf. Drag to orbit.</p>
+        </div>
+        <div class="vi-meta">
+          <span class="pill"><span class="tris">~1.4k tris</span></span>
+          <div class="tools">
+            <span class="tool primary"><span class="dot dot-blender"></span>Blender</span>
+            <span class="tool"><span class="dot dot-maya"></span>Maya</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RENDER GALLERY ===== -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Render gallery</span>
+      <h2>Beauty shots &amp; studies.</h2>
+      <p>Lit, posed and composed — the same models presented as finished renders.</p>
+    </div>
+    <div class="grid cols-3">
+
+      <article class="card reveal">
+        <div class="card-media">
+          <span class="card-tag">Blender</span>
+          <svg viewBox="0 0 320 240" preserveAspectRatio="xMidYMid slice" aria-label="Low-poly fox beauty render">
+            <defs>
+              <radialGradient id="r1" cx="40%" cy="30%" r="80%"><stop offset="0" stop-color="#2a2440"/><stop offset="1" stop-color="#0d0e16"/></radialGradient>
+              <linearGradient id="rfox" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff9a6a"/><stop offset="1" stop-color="#ff6b5e"/></linearGradient>
+            </defs>
+            <rect width="320" height="240" fill="url(#r1)"/>
+            <ellipse cx="160" cy="205" rx="92" ry="20" fill="#000" opacity=".35"/>
+            <polygon points="160,120 196,140 196,182 160,205 124,182 124,140" fill="url(#rfox)"/>
+            <polygon points="160,120 196,140 160,160 124,140" fill="#fff" opacity=".22"/>
+            <polygon points="160,160 196,140 196,182 160,205" fill="#000" opacity=".2"/>
+            <polygon points="138,96 128,120 156,118" fill="#ff7a5e"/><polygon points="182,96 192,120 164,118" fill="#ff7a5e"/>
+            <rect x="128" y="150" width="64" height="13" fill="#2ee6c4"/>
+            <circle cx="148" cy="138" r="4" fill="#241a26"/><circle cx="172" cy="138" r="4" fill="#241a26"/>
+          </svg>
+        </div>
+        <div class="card-body"><h3>Vela · turntable</h3><p>Three-point lit, flat-shaded hero render of the mascot.</p>
+          <div class="tools"><span class="tool primary"><span class="dot dot-blender"></span>Blender</span><span class="tool"><span class="dot dot-ps"></span>Comp</span></div></div>
+      </article>
+
+      <article class="card reveal" data-d="1">
+        <div class="card-media">
+          <span class="card-tag">Blender</span>
+          <svg viewBox="0 0 320 240" preserveAspectRatio="xMidYMid slice" aria-label="Floating island diorama render">
+            <defs><linearGradient id="r2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a2a6b"/><stop offset="1" stop-color="#101622"/></linearGradient></defs>
+            <rect width="320" height="240" fill="url(#r2)"/>
+            <circle cx="240" cy="60" r="26" fill="#ffe2a8" opacity=".8"/>
+            <polygon points="110,150 210,150 240,120 200,120" fill="#57b368"/>
+            <polygon points="110,150 210,150 210,178 110,178" fill="#8a5a3c"/>
+            <polygon points="210,150 240,120 240,150 210,178" fill="#6f4730"/>
+            <polygon points="110,178 210,178 175,205 145,205" fill="#6f4730"/>
+            <rect x="150" y="120" width="9" height="26" fill="#7a5230"/>
+            <polygon points="138,124 171,124 155,96" fill="#3f8d52"/><polygon points="142,104 168,104 155,82" fill="#57b368"/>
+            <ellipse cx="135" cy="150" rx="14" ry="5" fill="#4aa8ff" opacity=".8"/>
+          </svg>
+        </div>
+        <div class="card-body"><h3>Floating diorama</h3><p>Hex-island scene study — terrain, foliage and water.</p>
+          <div class="tools"><span class="tool primary"><span class="dot dot-blender"></span>Blender</span></div></div>
+      </article>
+
+      <article class="card reveal" data-d="2">
+        <div class="card-media">
+          <span class="card-tag">Maya</span>
+          <svg viewBox="0 0 320 240" preserveAspectRatio="xMidYMid slice" aria-label="Crystal cluster render">
+            <defs><radialGradient id="r3" cx="50%" cy="40%" r="70%"><stop offset="0" stop-color="#1a2440"/><stop offset="1" stop-color="#0b0e16"/></radialGradient></defs>
+            <rect width="320" height="240" fill="url(#r3)"/>
+            <ellipse cx="160" cy="200" rx="80" ry="16" fill="#2ee6c4" opacity=".12"/>
+            <polygon points="160,70 178,140 160,200 142,140" fill="#2ee6c4" opacity=".9"/>
+            <polygon points="160,70 178,140 160,150 142,140" fill="#fff" opacity=".3"/>
+            <polygon points="120,120 134,165 120,200 108,165" fill="#8b6cff" opacity=".9"/>
+            <polygon points="198,118 214,168 198,200 184,168" fill="#ff6b5e" opacity=".85"/>
+            <polygon points="186,150 198,180 186,200 176,180" fill="#ffc24b" opacity=".85"/>
+          </svg>
+        </div>
+        <div class="card-body"><h3>Crystal cluster</h3><p>Emissive material &amp; silhouette study for a game prop.</p>
+          <div class="tools"><span class="tool"><span class="dot dot-maya"></span>Maya</span><span class="tool primary"><span class="dot dot-blender"></span>Blender</span></div></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESS ===== -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="panel td-process reveal">
+      <div>
+        <span class="eyebrow">Pipeline</span>
+        <h2 class="gradient-text" style="font-size:clamp(1.6rem,3.2vw,2.3rem);margin:12px 0">Block → sculpt → shade → ship.</h2>
+        <p style="color:var(--muted);max-width:48ch">I keep topology clean and the poly-count honest so models drop straight into a real-time engine. The viewer above is the actual mesh — exported and rendered live, not a video.</p>
+      </div>
+      <ol class="td-steps">
+        <li><b>01</b> Box-model the silhouette from reference</li>
+        <li><b>02</b> Bevel &amp; flat-shade for the stylised facet look</li>
+        <li><b>03</b> Light: key, fill and a coloured rim</li>
+        <li><b>04</b> Export glTF → real-time WebGL</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <div>
+      <h4>Let's make<br>something good.</h4>
+      <p>2D &amp; 3D digital media — pixel art, vector, illustration, 3D, game art and compositing.</p>
+      <div class="tools" style="margin-top:18px">
+        <span class="tool primary"><span class="dot dot-unity"></span>Unity</span>
+        <span class="tool primary"><span class="dot dot-ps"></span>Photoshop</span>
+        <span class="tool primary"><span class="dot dot-figma"></span>Figma</span>
+        <span class="tool primary"><span class="dot dot-blender"></span>Blender</span>
+      </div>
+    </div>
+    <div class="foot-col">
+      <h5>Work</h5>
+      <a href="pixel.html">Pixel Art</a>
+      <a href="vector.html">Vector &amp; Illustration</a>
+      <a href="painting.html">Digital Painting</a>
+      <a href="threed.html">3D Modelling</a>
+      <a href="photo.html">Photo &amp; Composite</a>
+      <a href="game.html">Playable Demo</a>
+    </div>
+    <div class="foot-col">
+      <h5>Connect</h5>
+      <a href="about.html">About &amp; process</a>
+      <a href="mailto:ethanmcao@gmail.com">ethanmcao@gmail.com</a>
+      <a href="about.html#contact">Start a project</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© <span data-year></span> Ethan Cao · Digital Media</span>
+    <span>Hand-built · San Jose, CA</span>
+  </div>
+</footer>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module" src="assets/js/threed.js"></script>
+<script src="assets/js/components.js"></script>
+
+<style>
+.viewer-shell{border:1px solid var(--line);border-radius:var(--r-xl);overflow:hidden;background:linear-gradient(180deg,var(--panel),var(--bg-2))}
+.viewer-toolbar{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--line);background:rgba(13,14,22,.6)}
+.vt-group{display:flex;gap:6px;flex-wrap:wrap;background:var(--bg-2);padding:5px;border-radius:999px;border:1px solid var(--line)}
+.vt-btn{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-display);font-weight:600;font-size:.84rem;color:var(--muted);background:transparent;border:0;padding:8px 14px;border-radius:999px;transition:background .2s,color .2s}
+.vt-btn:hover{color:var(--text)}
+.vt-btn.active{background:var(--text);color:#0a0b0f}
+.viewer-stage{position:relative;aspect-ratio:16/10;background:radial-gradient(110% 90% at 30% 10%,#1b1e2b 0%,#0c0d14 70%)}
+#viewer{position:absolute;inset:0;cursor:grab}
+#viewer:active{cursor:grabbing}
+#viewer canvas{display:block;width:100%;height:100%}
+.viewer-loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:10px;color:var(--muted);font-family:var(--font-mono);font-size:.85rem}
+.spinner{width:16px;height:16px;border:2px solid var(--line-2);border-top-color:var(--teal);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.viewer-fallback{position:absolute;inset:0;display:none;place-items:center;text-align:center;color:var(--muted)}
+.viewer-fallback p{margin-top:14px;font-family:var(--font-mono);font-size:.85rem}
+.viewer-hint{position:absolute;bottom:12px;right:14px;font-size:.72rem;color:var(--faint);background:rgba(10,11,15,.6);padding:5px 10px;border-radius:999px;backdrop-filter:blur(6px)}
+.viewer-info{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin:0;border:0;border-top:1px solid var(--line);border-radius:0;padding:18px 22px;background:rgba(13,14,22,.5)}
+.viewer-info h3{font-size:1.15rem;margin-bottom:4px}
+.viewer-info p{color:var(--muted);font-size:.9rem;max-width:52ch}
+.vi-meta{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.td-process{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;padding:clamp(26px,4vw,46px);align-items:center}
+.td-steps{list-style:none;display:grid;gap:10px}
+.td-steps li{font-family:var(--font-mono);font-size:.86rem;color:var(--muted);padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--bg-2)}
+.td-steps b{color:var(--teal);margin-right:12px}
+@media(max-width:820px){.td-process{grid-template-columns:1fr}.viewer-info{flex-direction:column;align-items:flex-start}}
+</style>
+</body>
+</html>
